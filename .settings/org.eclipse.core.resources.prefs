@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//src/goair/model/customer/Customer.java=UTF-8
+encoding//src/goair/model/employee/Employee.java=UTF-8
+encoding//src/goair/model/flight/Flight.java=UTF-8
+encoding//src/goair/model/general/Person.java=UTF-8
+encoding//src/goair/model/reservation/Reservation.java=UTF-8
+encoding//src/goair/util/SearchParametersForCustomers.java=UTF-8
+encoding//src/goair/util/SearchParametersForEmployees.java=UTF-8
+encoding//src/goair/util/SearchParametersForFlights.java=UTF-8
+encoding//src/goair/util/SearchParametersForReservation.java=UTF-8
+encoding//src/goair/wsdl/AdminServices.java=UTF-8
+encoding//src/goair/wsdl/AdminServicesService.java=UTF-8
+encoding//src/goair/wsdl/AdminServicesServiceLocator.java=UTF-8
+encoding//src/goair/wsdl/AdminServicesSoapBindingStub.java=UTF-8
