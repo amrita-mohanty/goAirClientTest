@@ -16,10 +16,10 @@ public class Reservation  implements java.io.Serializable {
 	public String toString() {
 		return "Reservation [creditCardNumber="
 				+ creditCardNumber + ", currentStatus=" + currentStatus
-				+ ", customerId=" + customerId + ", dateOfBooking="
+				+ ", customer=" + customerDetails.toString() + ", dateOfBooking="
 				+ dateFormat.format(dateOfBooking.getTime()) 
 				+ ", dateOfFlying=" + dateFormat.format(dateOfFlying.getTime())
-				+ ", flightId=" + flightId + ", numberOfSeatsBooked="
+				+ ", flight=" + flightDetails.toString() + ", numberOfSeatsBooked="
 				+ numberOfSeatsBooked + ", pnr=" + pnr + ", totalPrice="
 				+ totalPrice + "]";
 	}
@@ -28,17 +28,17 @@ public class Reservation  implements java.io.Serializable {
 
     private java.lang.String currentStatus;
 
-    private int customerId;
+    private goair.model.customer.Customer customerDetails;
 
     private java.util.Calendar dateOfBooking;
 
     private java.util.Calendar dateOfFlying;
 
-    private int flightId;
+    private goair.model.flight.Flight flightDetails;
 
     private int numberOfSeatsBooked;
 
-    private java.lang.String pnr;
+    private long pnr;
 
     private double totalPrice;
 
@@ -48,19 +48,19 @@ public class Reservation  implements java.io.Serializable {
     public Reservation(
            long creditCardNumber,
            java.lang.String currentStatus,
-           int customerId,
+           goair.model.customer.Customer customerDetails,
            java.util.Calendar dateOfBooking,
            java.util.Calendar dateOfFlying,
-           int flightId,
+           goair.model.flight.Flight flightDetails,
            int numberOfSeatsBooked,
-           java.lang.String pnr,
+           long pnr,
            double totalPrice) {
            this.creditCardNumber = creditCardNumber;
            this.currentStatus = currentStatus;
-           this.customerId = customerId;
+           this.customerDetails = customerDetails;
            this.dateOfBooking = dateOfBooking;
            this.dateOfFlying = dateOfFlying;
-           this.flightId = flightId;
+           this.flightDetails = flightDetails;
            this.numberOfSeatsBooked = numberOfSeatsBooked;
            this.pnr = pnr;
            this.totalPrice = totalPrice;
@@ -108,22 +108,22 @@ public class Reservation  implements java.io.Serializable {
 
 
     /**
-     * Gets the customerId value for this Reservation.
+     * Gets the customerDetails value for this Reservation.
      * 
-     * @return customerId
+     * @return customerDetails
      */
-    public int getCustomerId() {
-        return customerId;
+    public goair.model.customer.Customer getCustomerDetails() {
+        return customerDetails;
     }
 
 
     /**
-     * Sets the customerId value for this Reservation.
+     * Sets the customerDetails value for this Reservation.
      * 
-     * @param customerId
+     * @param customerDetails
      */
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setCustomerDetails(goair.model.customer.Customer customerDetails) {
+        this.customerDetails = customerDetails;
     }
 
 
@@ -168,22 +168,22 @@ public class Reservation  implements java.io.Serializable {
 
 
     /**
-     * Gets the flightId value for this Reservation.
+     * Gets the flightDetails value for this Reservation.
      * 
-     * @return flightId
+     * @return flightDetails
      */
-    public int getFlightId() {
-        return flightId;
+    public goair.model.flight.Flight getFlightDetails() {
+        return flightDetails;
     }
 
 
     /**
-     * Sets the flightId value for this Reservation.
+     * Sets the flightDetails value for this Reservation.
      * 
-     * @param flightId
+     * @param flightDetails
      */
-    public void setFlightId(int flightId) {
-        this.flightId = flightId;
+    public void setFlightDetails(goair.model.flight.Flight flightDetails) {
+        this.flightDetails = flightDetails;
     }
 
 
@@ -212,7 +212,7 @@ public class Reservation  implements java.io.Serializable {
      * 
      * @return pnr
      */
-    public java.lang.String getPnr() {
+    public long getPnr() {
         return pnr;
     }
 
@@ -222,7 +222,7 @@ public class Reservation  implements java.io.Serializable {
      * 
      * @param pnr
      */
-    public void setPnr(java.lang.String pnr) {
+    public void setPnr(long pnr) {
         this.pnr = pnr;
     }
 
@@ -262,18 +262,20 @@ public class Reservation  implements java.io.Serializable {
             ((this.currentStatus==null && other.getCurrentStatus()==null) || 
              (this.currentStatus!=null &&
               this.currentStatus.equals(other.getCurrentStatus()))) &&
-            this.customerId == other.getCustomerId() &&
+            ((this.customerDetails==null && other.getCustomerDetails()==null) || 
+             (this.customerDetails!=null &&
+              this.customerDetails.equals(other.getCustomerDetails()))) &&
             ((this.dateOfBooking==null && other.getDateOfBooking()==null) || 
              (this.dateOfBooking!=null &&
               this.dateOfBooking.equals(other.getDateOfBooking()))) &&
             ((this.dateOfFlying==null && other.getDateOfFlying()==null) || 
              (this.dateOfFlying!=null &&
               this.dateOfFlying.equals(other.getDateOfFlying()))) &&
-            this.flightId == other.getFlightId() &&
+            ((this.flightDetails==null && other.getFlightDetails()==null) || 
+             (this.flightDetails!=null &&
+              this.flightDetails.equals(other.getFlightDetails()))) &&
             this.numberOfSeatsBooked == other.getNumberOfSeatsBooked() &&
-            ((this.pnr==null && other.getPnr()==null) || 
-             (this.pnr!=null &&
-              this.pnr.equals(other.getPnr()))) &&
+            this.pnr == other.getPnr() &&
             this.totalPrice == other.getTotalPrice();
         __equalsCalc = null;
         return _equals;
@@ -290,18 +292,20 @@ public class Reservation  implements java.io.Serializable {
         if (getCurrentStatus() != null) {
             _hashCode += getCurrentStatus().hashCode();
         }
-        _hashCode += getCustomerId();
+        if (getCustomerDetails() != null) {
+            _hashCode += getCustomerDetails().hashCode();
+        }
         if (getDateOfBooking() != null) {
             _hashCode += getDateOfBooking().hashCode();
         }
         if (getDateOfFlying() != null) {
             _hashCode += getDateOfFlying().hashCode();
         }
-        _hashCode += getFlightId();
-        _hashCode += getNumberOfSeatsBooked();
-        if (getPnr() != null) {
-            _hashCode += getPnr().hashCode();
+        if (getFlightDetails() != null) {
+            _hashCode += getFlightDetails().hashCode();
         }
+        _hashCode += getNumberOfSeatsBooked();
+        _hashCode += new Long(getPnr()).hashCode();
         _hashCode += new Double(getTotalPrice()).hashCode();
         __hashCodeCalc = false;
         return _hashCode;
@@ -326,10 +330,10 @@ public class Reservation  implements java.io.Serializable {
         elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("customerId");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://reservation.model.goair", "customerId"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setNillable(false);
+        elemField.setFieldName("customerDetails");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://reservation.model.goair", "customerDetails"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://customer.model.goair", "Customer"));
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("dateOfBooking");
@@ -344,10 +348,10 @@ public class Reservation  implements java.io.Serializable {
         elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("flightId");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://reservation.model.goair", "flightId"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setNillable(false);
+        elemField.setFieldName("flightDetails");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://reservation.model.goair", "flightDetails"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://flight.model.goair", "Flight"));
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("numberOfSeatsBooked");
@@ -358,8 +362,8 @@ public class Reservation  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("pnr");
         elemField.setXmlName(new javax.xml.namespace.QName("http://reservation.model.goair", "pnr"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(true);
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("totalPrice");

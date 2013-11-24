@@ -66,9 +66,10 @@ public class AdminServicesTest
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date(System.currentTimeMillis()));
 		Flight flight = new Flight();
-		flight.setArrivalTime(cal);flight.setCrewDetails(new Employee[]{new Employee(null, null, 
-				null, null, null, null, null, 
-				null, null, null, null, null, 1, null, null, null)});
+		flight.setArrivalTime(cal);
+		Employee crew = new Employee();
+		crew.setEmployeeId(10000);
+		flight.setCrewDetails(new Employee[]{crew});
 		flight.setCurrentStatus("ACTIVE");flight.setDaysOfWeek("Monday,Tuesday");
 		flight.setDepartureTime(cal);flight.setDestination("San Francisco");
 		flight.setFlightName("CX987");flight.setFlightStatus("Started");
@@ -80,9 +81,8 @@ public class AdminServicesTest
 		date1 = dateFormat.parse("01-01-2014");
 		cal.setTime(date1);
 		flight.setFlyingEndDate(cal);
-		flight.setPassengers(new Customer[]{new Customer(null, 
-				null, null, null, null, null, null, null, null, 
-				null, null, 1, null, null)});
+		Customer passenger = new Customer(); passenger.setCustomerId(10000);
+		flight.setPassengers(new Customer[]{passenger});
 		flight.setSeatsAvailable(400);flight.setSeatsReserved(100);
 		flight.setSource("Los Angeles");flight.setTicketPrice(450.56);
 		flight.setTotalSeats(500);
@@ -99,12 +99,16 @@ public class AdminServicesTest
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date(System.currentTimeMillis()));
 		Reservation reservation = new Reservation();
-		reservation.setCustomerId(10000);reservation.setFlightId(2);
+		Customer customer = new Customer();customer.setCustomerId(10000);
+		reservation.setCustomerDetails(customer);
+		Flight flight = new Flight();
+		flight.setFlightId(1);
+		reservation.setFlightDetails(flight);
 		reservation.setCreditCardNumber(346576857);
 		reservation.setDateOfBooking(cal);
 		reservation.setDateOfFlying(cal);
 		reservation.setNumberOfSeatsBooked(46);
-		reservation.setPnr("erasera");
+		reservation.setPnr(45689745);
 		reservation.setTotalPrice(46*450.56);
 		try {
 			adminServicesProxy.addReservation(reservation);
@@ -169,12 +173,14 @@ public class AdminServicesTest
 	{
 //		AdminServicesTest.testAddCustomer();
 //		AdminServicesTest.testAddEmployee();;
-//		AdminServicesTest.testAddFlight();
+		AdminServicesTest.testAddFlight();
 //		AdminServicesTest.testAddReservation();
-		AdminServicesTest.testGetAllCustomer();
-		AdminServicesTest.testGetAllEmployee();
-		AdminServicesTest.testGetAllFlights();
-		AdminServicesTest.testGetAllReservation();
+//		AdminServicesTest.testGetAllCustomer();
+//		AdminServicesTest.testGetAllEmployee();
+//		AdminServicesTest.testGetAllFlights();
+//		AdminServicesTest.testGetAllReservation();
+		
+		
 	}
 
 }

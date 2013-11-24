@@ -18,6 +18,8 @@ public class SearchParametersForFlights  implements java.io.Serializable {
 
     private java.lang.String destination;
 
+    private int employeeId;
+
     private java.lang.String flightNumber;
 
     private int numberOfSeatsAvialable;
@@ -33,6 +35,7 @@ public class SearchParametersForFlights  implements java.io.Serializable {
            java.util.Calendar dateOfFlying,
            java.util.Calendar departureTime,
            java.lang.String destination,
+           int employeeId,
            java.lang.String flightNumber,
            int numberOfSeatsAvialable,
            java.lang.String source) {
@@ -41,6 +44,7 @@ public class SearchParametersForFlights  implements java.io.Serializable {
            this.dateOfFlying = dateOfFlying;
            this.departureTime = departureTime;
            this.destination = destination;
+           this.employeeId = employeeId;
            this.flightNumber = flightNumber;
            this.numberOfSeatsAvialable = numberOfSeatsAvialable;
            this.source = source;
@@ -148,6 +152,26 @@ public class SearchParametersForFlights  implements java.io.Serializable {
 
 
     /**
+     * Gets the employeeId value for this SearchParametersForFlights.
+     * 
+     * @return employeeId
+     */
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+
+    /**
+     * Sets the employeeId value for this SearchParametersForFlights.
+     * 
+     * @param employeeId
+     */
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+
+    /**
      * Gets the flightNumber value for this SearchParametersForFlights.
      * 
      * @return flightNumber
@@ -233,6 +257,7 @@ public class SearchParametersForFlights  implements java.io.Serializable {
             ((this.destination==null && other.getDestination()==null) || 
              (this.destination!=null &&
               this.destination.equals(other.getDestination()))) &&
+            this.employeeId == other.getEmployeeId() &&
             ((this.flightNumber==null && other.getFlightNumber()==null) || 
              (this.flightNumber!=null &&
               this.flightNumber.equals(other.getFlightNumber()))) &&
@@ -266,6 +291,7 @@ public class SearchParametersForFlights  implements java.io.Serializable {
         if (getDestination() != null) {
             _hashCode += getDestination().hashCode();
         }
+        _hashCode += getEmployeeId();
         if (getFlightNumber() != null) {
             _hashCode += getFlightNumber().hashCode();
         }
@@ -312,6 +338,12 @@ public class SearchParametersForFlights  implements java.io.Serializable {
         elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "destination"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("employeeId");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "employeeId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("flightNumber");
