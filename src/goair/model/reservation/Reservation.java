@@ -12,17 +12,17 @@ import java.text.SimpleDateFormat;
 public class Reservation  implements java.io.Serializable {
 	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 	
-    @Override
-	public String toString() {
-		return "Reservation [creditCardNumber="
-				+ creditCardNumber + ", currentStatus=" + currentStatus
-				+ ", customer=" + customerDetails.toString() + ", dateOfBooking="
-				+ dateFormat.format(dateOfBooking.getTime()) 
-				+ ", dateOfFlying=" + dateFormat.format(dateOfFlying.getTime())
-				+ ", flight=" + flightDetails.toString() + ", numberOfSeatsBooked="
-				+ numberOfSeatsBooked + ", pnr=" + pnr + ", totalPrice="
-				+ totalPrice + "]";
-	}
+//    @Override
+//	public String toString() {
+//		return "Reservation [creditCardNumber="
+//				+ creditCardNumber + ", currentStatus=" + currentStatus
+//				+ ", customer=" + customerDetails 
+//				+ ", dateOfBooking=" + dateOfBooking != null ? dateFormat.format(dateOfBooking.getTime()) : null 
+//				+ ", dateOfFlying=" + dateOfFlying != null ? dateFormat.format(dateOfFlying.getTime()) : null
+//				+ ", flight=" + flightDetails.toString() + ", numberOfSeatsBooked="
+//				+ numberOfSeatsBooked + ", pnr=" + pnr + ", totalPrice="
+//				+ totalPrice + "]";
+//	}
     
     private long creditCardNumber;
 

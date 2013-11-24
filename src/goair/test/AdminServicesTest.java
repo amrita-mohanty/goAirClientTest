@@ -111,6 +111,7 @@ public class AdminServicesTest
 		reservation.setPnr(45689745);
 		reservation.setTotalPrice(46*450.56);
 		try {
+//			System.out.println(reservation.toString());
 			adminServicesProxy.addReservation(reservation);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -172,9 +173,9 @@ public class AdminServicesTest
 	public static void main(String[] args) throws ParseException
 	{
 //		AdminServicesTest.testAddCustomer();
-//		AdminServicesTest.testAddEmployee();;
-		AdminServicesTest.testAddFlight();
-//		AdminServicesTest.testAddReservation();
+//		AdminServicesTest.testAddEmployee();
+//		AdminServicesTest.testAddFlight();
+		AdminServicesTest.testAddReservation();
 //		AdminServicesTest.testGetAllCustomer();
 //		AdminServicesTest.testGetAllEmployee();
 //		AdminServicesTest.testGetAllFlights();

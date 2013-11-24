@@ -17,15 +17,16 @@ public class Flight  implements java.io.Serializable {
     @Override
 	public String toString() {
 		return "Flight [airlineName="
-				+ airlineName + ", arrivalTime=" + dateFormatTime.format(arrivalTime.getTime())
+				+ airlineName
 				+ ", crewDetails=" + Arrays.toString(crewDetails)
-				+ ", currentStatus=" + currentStatus + ", daysOfWeek="
-				+ daysOfWeek + ", departureTime=" + dateFormatTime.format(departureTime.getTime())
+				+ ", currentStatus=" + currentStatus + ", daysOfWeek=" + daysOfWeek
+				+ ", arrivalTime=" + arrivalTime != null ? dateFormatTime.format(arrivalTime.getTime()) : null
+				+ ", departureTime=" + departureTime != null ? dateFormatTime.format(departureTime.getTime()) : null
 				+ ", destination=" + destination + ", flightId=" + flightId
-				+ ", flightName=" + flightName + ", flightStatus="
-				+ flightStatus + ", flyingEndDate=" + dateFormat.format(flyingEndDate.getTime())
-				+ ", flyingStartDate=" + dateFormat.format(flyingStartDate.getTime()) 
-				+ ", flyingDate=" + dateFormat.format(flyingDate.getTime())
+				+ ", flightName=" + flightName + ", flightStatus=" + flightStatus 
+				+ ", flyingEndDate=" + flyingEndDate != null ? dateFormat.format(flyingEndDate.getTime()) : null
+				+ ", flyingStartDate=" + flyingStartDate != null ? dateFormat.format(flyingStartDate.getTime()) : null 
+				+ ", flyingDate=" + flyingDate != null ?  dateFormat.format(flyingDate.getTime()) : null
 				+ ", passengers="
 				+ Arrays.toString(passengers) + ", seatsAvailable="
 				+ seatsAvailable + ", seatsReserved=" + seatsReserved

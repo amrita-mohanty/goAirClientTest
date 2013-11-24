@@ -15,7 +15,8 @@ public class Person  implements java.io.Serializable {
     @Override
 	public String toString() {
 		return "Person [address=" + address + ", city=" + city
-				+ ", currentStatus=" + currentStatus + ", dob=" + dateFormat.format(dob.getTime())
+				+ ", currentStatus=" + currentStatus 
+				+ ", dob=" + dob != null ? dateFormat.format(dob.getTime()) : null
 				+ ", emailId=" + emailId + ", firstName=" + firstName
 				+ ", gender=" + gender + ", lastName=" + lastName
 				+ ", password=" + password + ", state=" + state + ", zipcode="

@@ -15,7 +15,8 @@ public class Employee  extends goair.model.general.Person  implements java.io.Se
 	@Override
 	public String toString() {
 		return "Employee [airlineName=" + airlineName + ", employeeId="
-				+ employeeId + ", hireDate=" + dateFormat.format(hireDate.getTime()) 
+				+ employeeId 
+				+ ", hireDate=" + hireDate != null ? dateFormat.format(hireDate.getTime()) : null 
 				+ ", jobDesc="
 				+ jobDesc + ", position=" + position + "]"+ super.toString();
 	}
