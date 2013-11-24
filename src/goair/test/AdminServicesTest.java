@@ -100,18 +100,21 @@ public class AdminServicesTest
 		cal.setTime(new Date(System.currentTimeMillis()));
 		Reservation reservation = new Reservation();
 		Customer customer = new Customer();customer.setCustomerId(10000);
-		reservation.setCustomerDetails(customer);
+		System.out.println(customer.toString());
+		reservation.setCustomerId(10000);
 		Flight flight = new Flight();
 		flight.setFlightId(1);
-		reservation.setFlightDetails(flight);
+		System.out.println(flight.toString());
+		reservation.setFlightId(1);
 		reservation.setCreditCardNumber(346576857);
 		reservation.setDateOfBooking(cal);
 		reservation.setDateOfFlying(cal);
 		reservation.setNumberOfSeatsBooked(46);
 		reservation.setPnr(45689745);
 		reservation.setTotalPrice(46*450.56);
+		reservation.setCurrentStatus("ACTIVE");
 		try {
-//			System.out.println(reservation.toString());
+			System.out.println(reservation.toString());
 			adminServicesProxy.addReservation(reservation);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -175,7 +178,7 @@ public class AdminServicesTest
 //		AdminServicesTest.testAddCustomer();
 //		AdminServicesTest.testAddEmployee();
 //		AdminServicesTest.testAddFlight();
-		AdminServicesTest.testAddReservation();
+//		AdminServicesTest.testAddReservation();
 //		AdminServicesTest.testGetAllCustomer();
 //		AdminServicesTest.testGetAllEmployee();
 //		AdminServicesTest.testGetAllFlights();

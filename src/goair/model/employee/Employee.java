@@ -7,20 +7,7 @@
 
 package goair.model.employee;
 
-import java.text.SimpleDateFormat;
-
 public class Employee  extends goair.model.general.Person  implements java.io.Serializable {
-	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-	
-	@Override
-	public String toString() {
-		return "Employee [airlineName=" + airlineName + ", employeeId="
-				+ employeeId 
-				+ ", hireDate=" + hireDate != null ? dateFormat.format(hireDate.getTime()) : null 
-				+ ", jobDesc="
-				+ jobDesc + ", position=" + position + "]"+ super.toString();
-	}
-	
     private java.lang.String airlineName;
 
     private java.lang.Integer employeeId;

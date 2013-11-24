@@ -8,62 +8,46 @@
 package goair.util;
 
 public class SearchParametersForReservation  implements java.io.Serializable {
-    private long pnr;
-
-    private long flightId;
+    private int customerId;
 
     private java.util.Calendar dateOfFlying;
+
+    private int flightId;
+
+    private long pnr;
 
     public SearchParametersForReservation() {
     }
 
     public SearchParametersForReservation(
-           long pnr,
-           long flightId,
-           java.util.Calendar dateOfFlying) {
-           this.pnr = pnr;
-           this.flightId = flightId;
+           int customerId,
+           java.util.Calendar dateOfFlying,
+           int flightId,
+           long pnr) {
+           this.customerId = customerId;
            this.dateOfFlying = dateOfFlying;
+           this.flightId = flightId;
+           this.pnr = pnr;
     }
 
 
     /**
-     * Gets the pnr value for this SearchParametersForReservation.
+     * Gets the customerId value for this SearchParametersForReservation.
      * 
-     * @return pnr
+     * @return customerId
      */
-    public long getPnr() {
-        return pnr;
+    public int getCustomerId() {
+        return customerId;
     }
 
 
     /**
-     * Sets the pnr value for this SearchParametersForReservation.
+     * Sets the customerId value for this SearchParametersForReservation.
      * 
-     * @param pnr
+     * @param customerId
      */
-    public void setPnr(long pnr) {
-        this.pnr = pnr;
-    }
-
-
-    /**
-     * Gets the flightId value for this SearchParametersForReservation.
-     * 
-     * @return flightId
-     */
-    public long getFlightId() {
-        return flightId;
-    }
-
-
-    /**
-     * Sets the flightId value for this SearchParametersForReservation.
-     * 
-     * @param flightId
-     */
-    public void setFlightId(long flightId) {
-        this.flightId = flightId;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
 
@@ -86,6 +70,46 @@ public class SearchParametersForReservation  implements java.io.Serializable {
         this.dateOfFlying = dateOfFlying;
     }
 
+
+    /**
+     * Gets the flightId value for this SearchParametersForReservation.
+     * 
+     * @return flightId
+     */
+    public int getFlightId() {
+        return flightId;
+    }
+
+
+    /**
+     * Sets the flightId value for this SearchParametersForReservation.
+     * 
+     * @param flightId
+     */
+    public void setFlightId(int flightId) {
+        this.flightId = flightId;
+    }
+
+
+    /**
+     * Gets the pnr value for this SearchParametersForReservation.
+     * 
+     * @return pnr
+     */
+    public long getPnr() {
+        return pnr;
+    }
+
+
+    /**
+     * Sets the pnr value for this SearchParametersForReservation.
+     * 
+     * @param pnr
+     */
+    public void setPnr(long pnr) {
+        this.pnr = pnr;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof SearchParametersForReservation)) return false;
@@ -98,11 +122,12 @@ public class SearchParametersForReservation  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            this.pnr == other.getPnr() &&
-            this.flightId == other.getFlightId() &&
+            this.customerId == other.getCustomerId() &&
             ((this.dateOfFlying==null && other.getDateOfFlying()==null) || 
              (this.dateOfFlying!=null &&
-              this.dateOfFlying.equals(other.getDateOfFlying())));
+              this.dateOfFlying.equals(other.getDateOfFlying()))) &&
+            this.flightId == other.getFlightId() &&
+            this.pnr == other.getPnr();
         __equalsCalc = null;
         return _equals;
     }
@@ -114,11 +139,12 @@ public class SearchParametersForReservation  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
-        _hashCode += new Long(getPnr()).hashCode();
-        _hashCode += new Long(getFlightId()).hashCode();
+        _hashCode += getCustomerId();
         if (getDateOfFlying() != null) {
             _hashCode += getDateOfFlying().hashCode();
         }
+        _hashCode += getFlightId();
+        _hashCode += new Long(getPnr()).hashCode();
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -130,15 +156,9 @@ public class SearchParametersForReservation  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://util.goair", "SearchParametersForReservation"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("pnr");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "pnr"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("flightId");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "flightId"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
+        elemField.setFieldName("customerId");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "customerId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
@@ -146,6 +166,18 @@ public class SearchParametersForReservation  implements java.io.Serializable {
         elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "dateOfFlying"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "dateTime"));
         elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("flightId");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "flightId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("pnr");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "pnr"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
 

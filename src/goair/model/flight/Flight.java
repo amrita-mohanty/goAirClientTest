@@ -7,33 +7,7 @@
 
 package goair.model.flight;
 
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-
 public class Flight  implements java.io.Serializable {
-	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-	SimpleDateFormat dateFormatTime = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-	
-    @Override
-	public String toString() {
-		return "Flight [airlineName="
-				+ airlineName
-				+ ", crewDetails=" + Arrays.toString(crewDetails)
-				+ ", currentStatus=" + currentStatus + ", daysOfWeek=" + daysOfWeek
-				+ ", arrivalTime=" + arrivalTime != null ? dateFormatTime.format(arrivalTime.getTime()) : null
-				+ ", departureTime=" + departureTime != null ? dateFormatTime.format(departureTime.getTime()) : null
-				+ ", destination=" + destination + ", flightId=" + flightId
-				+ ", flightName=" + flightName + ", flightStatus=" + flightStatus 
-				+ ", flyingEndDate=" + flyingEndDate != null ? dateFormat.format(flyingEndDate.getTime()) : null
-				+ ", flyingStartDate=" + flyingStartDate != null ? dateFormat.format(flyingStartDate.getTime()) : null 
-				+ ", flyingDate=" + flyingDate != null ?  dateFormat.format(flyingDate.getTime()) : null
-				+ ", passengers="
-				+ Arrays.toString(passengers) + ", seatsAvailable="
-				+ seatsAvailable + ", seatsReserved=" + seatsReserved
-				+ ", source=" + source + ", ticketPrice=" + ticketPrice
-				+ ", totalSeats=" + totalSeats + "]";
-	}
-    
     private java.lang.String airlineName;
 
     private java.util.Calendar arrivalTime;

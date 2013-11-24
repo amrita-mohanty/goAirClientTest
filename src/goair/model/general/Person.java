@@ -7,22 +7,7 @@
 
 package goair.model.general;
 
-import java.text.SimpleDateFormat;
-
 public class Person  implements java.io.Serializable {
-	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-	
-    @Override
-	public String toString() {
-		return "Person [address=" + address + ", city=" + city
-				+ ", currentStatus=" + currentStatus 
-				+ ", dob=" + dob != null ? dateFormat.format(dob.getTime()) : null
-				+ ", emailId=" + emailId + ", firstName=" + firstName
-				+ ", gender=" + gender + ", lastName=" + lastName
-				+ ", password=" + password + ", state=" + state + ", zipcode="
-				+ zipcode + "]";
-	}
-    
     private java.lang.String address;
 
     private java.lang.String city;

@@ -8,13 +8,6 @@
 package goair.model.customer;
 
 public class Customer  extends goair.model.general.Person  implements java.io.Serializable {
-	
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", nationality="
-				+ nationality + ", passportNum=" + passportNum + "]";
-	}
-	
     private int customerId;
 
     private java.lang.String nationality;
