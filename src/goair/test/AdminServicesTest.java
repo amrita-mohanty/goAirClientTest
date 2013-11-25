@@ -241,13 +241,54 @@ public class AdminServicesTest
 		}
 	}
 	
-	public static void testEditReservation()
+	public static void testDeleteCustomer()
 	{
 		try {
-			for (Reservation reservation : adminServicesProxy.getAllReservationsForAdmin())
-			{
-				System.out.println("Reservation : "+reservation.toString());
-			}
+			Customer customer = new Customer();
+			customer.setCustomerId(10000);
+			int retrunCode = adminServicesProxy.deleteCustomer(customer);
+			System.out.println("Delete customer completed with return code : "+retrunCode);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void testDeleteEmployee()
+	{
+		try {
+			Employee employee = new Employee();
+			employee.setEmployeeId(10000);
+			int retrunCode = adminServicesProxy.deleteEmployee(employee);
+			System.out.println("Delete employee completed with return code : "+retrunCode);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void testDeleteFlight()
+	{
+		try {
+			Flight flight = new Flight();
+			flight.setFlightId(1);
+			int retrunCode = adminServicesProxy.deleteFlight(flight);
+			System.out.println("Delete Flight completed with return code : "+retrunCode);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void testCancelReservation()
+	{
+		try {
+			Reservation reservation = new Reservation();
+			reservation.setPnr(1);
+			reservation.setFlightId(1);
+			reservation.setNumberOfSeatsBooked(46);
+			int retrunCode = adminServicesProxy.cancelReservation(reservation);
+			System.out.println("Cancel Reservation completed with return code : "+retrunCode);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -256,18 +297,21 @@ public class AdminServicesTest
 	
 	public static void main(String[] args) throws ParseException
 	{
-//		AdminServicesTest.testAddCustomer();
-//		AdminServicesTest.testAddEmployee();
-//		AdminServicesTest.testAddFlight();
-//		AdminServicesTest.testAddReservation();
-//		AdminServicesTest.testGetAllCustomer();
-//		AdminServicesTest.testGetAllEmployee();
-//		AdminServicesTest.testGetAllFlights();
-//		AdminServicesTest.testGetAllReservation();
-//		AdminServicesTest.testEditCustomer();
-//		AdminServicesTest.testEditEmployee();
-		AdminServicesTest.testEditFlights();;
-		
+		AdminServicesTest.testAddCustomer();
+		AdminServicesTest.testAddEmployee();
+		AdminServicesTest.testAddFlight();
+		AdminServicesTest.testAddReservation();
+		AdminServicesTest.testGetAllCustomer();
+		AdminServicesTest.testGetAllEmployee();
+		AdminServicesTest.testGetAllFlights();
+		AdminServicesTest.testGetAllReservation();
+		AdminServicesTest.testEditCustomer();
+		AdminServicesTest.testEditEmployee();
+		AdminServicesTest.testEditFlights();
+		AdminServicesTest.testDeleteCustomer();
+		AdminServicesTest.testDeleteEmployee();
+		AdminServicesTest.testDeleteFlight();
+		AdminServicesTest.testCancelReservation();
 	}
 
 }
