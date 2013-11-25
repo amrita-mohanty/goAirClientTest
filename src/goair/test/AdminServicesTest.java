@@ -127,9 +127,13 @@ public class AdminServicesTest
 	public static void testGetAllCustomer()
 	{
 		try {
-			for (Customer customer : adminServicesProxy.getAllCustomersForAdmin())
+			Customer[] customers = adminServicesProxy.getAllCustomersForAdmin();
+			if(customers != null)
 			{
-				System.out.println("Customer : "+customer.toString());
+				for (Customer customer : customers)
+				{
+					System.out.println("Customer : "+customer.toString());
+				}
 			}
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -140,9 +144,13 @@ public class AdminServicesTest
 	public static void testGetAllEmployee()
 	{
 		try {
-			for (Employee employee : adminServicesProxy.getAllEmployeesForAdmin())
+			Employee[] employees = adminServicesProxy.getAllEmployeesForAdmin();
+			if(employees != null)
 			{
-				System.out.println("Employee : "+employee.toString());
+				for (Employee employee : employees)
+				{
+					System.out.println("Employee : "+employee.toString());
+				}
 			}
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -153,9 +161,13 @@ public class AdminServicesTest
 	public static void testGetAllFlights()
 	{
 		try {
-			for (Flight flight : adminServicesProxy.getAllFlightsForAdmin())
+			Flight[] flights = adminServicesProxy.getAllFlightsForAdmin();
+			if(flights != null)
 			{
-				System.out.println("Flight : "+flight.toString());
+				for (Flight flight : flights)
+				{
+					System.out.println("Flight : "+flight.toString());
+				}
 			}
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -166,9 +178,13 @@ public class AdminServicesTest
 	public static void testGetAllReservation()
 	{
 		try {
-			for (Reservation reservation : adminServicesProxy.getAllReservationsForAdmin())
+			Reservation[] reservations = adminServicesProxy.getAllReservationsForAdmin();
+			if(reservations != null)
 			{
-				System.out.println("Reservation : "+reservation.toString());
+				for (Reservation reservation : reservations)
+				{
+					System.out.println("Reservation : "+reservation.toString());
+				}
 			}
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -301,17 +317,25 @@ public class AdminServicesTest
 		AdminServicesTest.testAddEmployee();
 		AdminServicesTest.testAddFlight();
 		AdminServicesTest.testAddReservation();
+		
 		AdminServicesTest.testGetAllCustomer();
 		AdminServicesTest.testGetAllEmployee();
 		AdminServicesTest.testGetAllFlights();
 		AdminServicesTest.testGetAllReservation();
+		
 		AdminServicesTest.testEditCustomer();
 		AdminServicesTest.testEditEmployee();
 		AdminServicesTest.testEditFlights();
+		
 		AdminServicesTest.testDeleteCustomer();
 		AdminServicesTest.testDeleteEmployee();
 		AdminServicesTest.testDeleteFlight();
 		AdminServicesTest.testCancelReservation();
+		
+		AdminServicesTest.testGetAllCustomer();
+		AdminServicesTest.testGetAllEmployee();
+		AdminServicesTest.testGetAllFlights();
+		AdminServicesTest.testGetAllReservation();
 	}
 
 }
