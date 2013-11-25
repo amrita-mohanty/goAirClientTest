@@ -15,6 +15,8 @@ import goair.wsdl.AdminServicesProxy;
 
 public class AdminServicesTest 
 {
+	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	
 	public static AdminServicesProxy adminServicesProxy = 
 			new AdminServicesProxy();
 	static {
@@ -173,6 +175,85 @@ public class AdminServicesTest
 			e.printStackTrace();
 		}
 	}
+	
+	public static void testEditCustomer()
+	{
+		try {
+			Customer customer = new Customer();
+			customer.setCustomerId(10000);
+			customer.setAddress("6754 Ellie Ave");
+			int retrunCode = adminServicesProxy.editCustomer(customer);
+			System.out.println("Edit customer completed with return code : "+retrunCode);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void testEditEmployee()
+	{
+		try {
+			Employee employee = new Employee();
+			employee.setEmployeeId(10000);
+			employee.setAddress("6754 Ellie Ave");
+			Calendar cal = Calendar.getInstance();
+			employee.setHireDate(cal);
+			int retrunCode = adminServicesProxy.editEmployee(employee);
+			System.out.println("Edit customer completed with return code : "+retrunCode);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void testEditFlights() throws ParseException
+	{
+		try {
+			Flight flight = new Flight();
+			flight.setFlightId(1);
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(new Date(System.currentTimeMillis()));
+			flight.setArrivalTime(cal);
+			Employee crew = new Employee();
+			crew.setEmployeeId(10000);
+			flight.setCrewDetails(new Employee[]{crew});
+			flight.setCurrentStatus("ACTIVE");flight.setDaysOfWeek("Monday");
+			flight.setDepartureTime(cal);flight.setDestination("San Diego");
+			flight.setFlightName("CX987");flight.setFlightStatus("Started");
+			DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			Date date1 = dateFormat.parse("01-11-2013");
+			cal.setTime(date1);
+			flight.setFlyingStartDate(cal);
+			cal = Calendar.getInstance();
+			date1 = dateFormat.parse("01-01-2014");
+			cal.setTime(date1);
+			flight.setFlyingEndDate(cal);
+			Customer passenger = new Customer(); passenger.setCustomerId(10000);
+			flight.setPassengers(new Customer[]{passenger});
+			flight.setSeatsAvailable(400);flight.setSeatsReserved(100);
+			flight.setSource("Los Angeles");flight.setTicketPrice(450.56);
+			flight.setTotalSeats(500);
+			int retrunCode = adminServicesProxy.editFlight(flight);
+			System.out.println("Edit customer completed with return code : "+retrunCode);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void testEditReservation()
+	{
+		try {
+			for (Reservation reservation : adminServicesProxy.getAllReservationsForAdmin())
+			{
+				System.out.println("Reservation : "+reservation.toString());
+			}
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public static void main(String[] args) throws ParseException
 	{
 //		AdminServicesTest.testAddCustomer();
@@ -183,7 +264,9 @@ public class AdminServicesTest
 //		AdminServicesTest.testGetAllEmployee();
 //		AdminServicesTest.testGetAllFlights();
 //		AdminServicesTest.testGetAllReservation();
-		
+//		AdminServicesTest.testEditCustomer();
+//		AdminServicesTest.testEditEmployee();
+		AdminServicesTest.testEditFlights();;
 		
 	}
 
