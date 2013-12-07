@@ -12,7 +12,7 @@ public class EmployeeServicesTest {
 	public static EmployeeServicesProxy employeeServicesProxy = 
 			new EmployeeServicesProxy();
 	static {
-		employeeServicesProxy.setEndpoint("http://localhost:8080/goAir/services/EmployeeServices");
+		employeeServicesProxy.setEndpoint("http://localhost:8080/goAir1/services/EmployeeServices");
 	}
 	
 	public static void viewEmployeeFlights(int employeeId) {
