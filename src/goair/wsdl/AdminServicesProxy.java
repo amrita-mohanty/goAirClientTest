@@ -44,6 +44,12 @@ public class AdminServicesProxy implements goair.wsdl.AdminServices {
     return adminServices;
   }
   
+  public void main(java.lang.String[] args) throws java.rmi.RemoteException{
+    if (adminServices == null)
+      _initAdminServicesProxy();
+    adminServices.main(args);
+  }
+  
   public goair.model.customer.Customer[] searchCustomersForAdmin(goair.util.SearchParametersForCustomers searchParameters) throws java.rmi.RemoteException{
     if (adminServices == null)
       _initAdminServicesProxy();
@@ -80,12 +86,6 @@ public class AdminServicesProxy implements goair.wsdl.AdminServices {
     return adminServices.getAllReservationsForAdmin();
   }
   
-  public int cancelReservation(goair.model.reservation.Reservation reservation) throws java.rmi.RemoteException{
-    if (adminServices == null)
-      _initAdminServicesProxy();
-    return adminServices.cancelReservation(reservation);
-  }
-  
   public int editReservation(goair.model.reservation.Reservation reservation) throws java.rmi.RemoteException{
     if (adminServices == null)
       _initAdminServicesProxy();
@@ -104,16 +104,22 @@ public class AdminServicesProxy implements goair.wsdl.AdminServices {
     return adminServices.deleteEmployee(employee);
   }
   
-  public int deleteFlight(goair.model.flight.Flight flight) throws java.rmi.RemoteException{
+  public int cancelReservation(goair.model.reservation.Reservation reservation) throws java.rmi.RemoteException{
     if (adminServices == null)
       _initAdminServicesProxy();
-    return adminServices.deleteFlight(flight);
+    return adminServices.cancelReservation(reservation);
   }
   
   public int editEmployee(goair.model.employee.Employee employee) throws java.rmi.RemoteException{
     if (adminServices == null)
       _initAdminServicesProxy();
     return adminServices.editEmployee(employee);
+  }
+  
+  public int editFlight(goair.model.flight.Flight flight) throws java.rmi.RemoteException{
+    if (adminServices == null)
+      _initAdminServicesProxy();
+    return adminServices.editFlight(flight);
   }
   
   public int addEmployee(goair.model.employee.Employee employee) throws java.rmi.RemoteException{
@@ -134,22 +140,16 @@ public class AdminServicesProxy implements goair.wsdl.AdminServices {
     return adminServices.editCustomer(customer);
   }
   
-  public goair.model.flight.Flight[] searchFlightsForAdmin(goair.util.SearchParametersForFlights searchParameters) throws java.rmi.RemoteException{
-    if (adminServices == null)
-      _initAdminServicesProxy();
-    return adminServices.searchFlightsForAdmin(searchParameters);
-  }
-  
   public int addCustomer(goair.model.customer.Customer customer) throws java.rmi.RemoteException{
     if (adminServices == null)
       _initAdminServicesProxy();
     return adminServices.addCustomer(customer);
   }
   
-  public int editFlight(goair.model.flight.Flight flight) throws java.rmi.RemoteException{
+  public int deleteFlight(goair.model.flight.Flight flight) throws java.rmi.RemoteException{
     if (adminServices == null)
       _initAdminServicesProxy();
-    return adminServices.editFlight(flight);
+    return adminServices.deleteFlight(flight);
   }
   
   public int addFlight(goair.model.flight.Flight flight) throws java.rmi.RemoteException{
@@ -162,6 +162,12 @@ public class AdminServicesProxy implements goair.wsdl.AdminServices {
     if (adminServices == null)
       _initAdminServicesProxy();
     return adminServices.getAllFlightsForAdmin();
+  }
+  
+  public goair.model.flight.Flight[] searchFlightsForAdmin(goair.util.SearchParametersForFlights searchParameters) throws java.rmi.RemoteException{
+    if (adminServices == null)
+      _initAdminServicesProxy();
+    return adminServices.searchFlightsForAdmin(searchParameters);
   }
   
   

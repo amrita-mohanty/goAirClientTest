@@ -10,7 +10,7 @@ package goair.model.employee;
 public class Employee  extends goair.model.general.Person  implements java.io.Serializable {
     private java.lang.String airlineName;
 
-    private java.lang.Integer employeeId;
+    private java.lang.String employeeId;
 
     private java.util.Calendar hireDate;
 
@@ -34,7 +34,7 @@ public class Employee  extends goair.model.general.Person  implements java.io.Se
            java.lang.String state,
            java.lang.String zipcode,
            java.lang.String airlineName,
-           java.lang.Integer employeeId,
+           java.lang.String employeeId,
            java.util.Calendar hireDate,
            java.lang.String jobDesc,
            java.lang.String position) {
@@ -83,7 +83,7 @@ public class Employee  extends goair.model.general.Person  implements java.io.Se
      * 
      * @return employeeId
      */
-    public java.lang.Integer getEmployeeId() {
+    public java.lang.String getEmployeeId() {
         return employeeId;
     }
 
@@ -93,7 +93,7 @@ public class Employee  extends goair.model.general.Person  implements java.io.Se
      * 
      * @param employeeId
      */
-    public void setEmployeeId(java.lang.Integer employeeId) {
+    public void setEmployeeId(java.lang.String employeeId) {
         this.employeeId = employeeId;
     }
 
@@ -229,7 +229,7 @@ public class Employee  extends goair.model.general.Person  implements java.io.Se
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("employeeId");
         elemField.setXmlName(new javax.xml.namespace.QName("http://employee.model.goair", "employeeId"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();

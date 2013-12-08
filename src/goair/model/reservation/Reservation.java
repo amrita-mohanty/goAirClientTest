@@ -10,7 +10,7 @@ package goair.model.reservation;
 public class Reservation  implements java.io.Serializable {
     private java.lang.String airlineName;
 
-    private long creditCardNumber;
+    private java.lang.String creditCardNumber;
 
     private java.lang.String currentStatus;
 
@@ -45,7 +45,7 @@ public class Reservation  implements java.io.Serializable {
 
     public Reservation(
            java.lang.String airlineName,
-           long creditCardNumber,
+           java.lang.String creditCardNumber,
            java.lang.String currentStatus,
            java.lang.String customerFirstName,
            int customerId,
@@ -104,7 +104,7 @@ public class Reservation  implements java.io.Serializable {
      * 
      * @return creditCardNumber
      */
-    public long getCreditCardNumber() {
+    public java.lang.String getCreditCardNumber() {
         return creditCardNumber;
     }
 
@@ -114,7 +114,7 @@ public class Reservation  implements java.io.Serializable {
      * 
      * @param creditCardNumber
      */
-    public void setCreditCardNumber(long creditCardNumber) {
+    public void setCreditCardNumber(java.lang.String creditCardNumber) {
         this.creditCardNumber = creditCardNumber;
     }
 
@@ -413,7 +413,9 @@ public class Reservation  implements java.io.Serializable {
             ((this.airlineName==null && other.getAirlineName()==null) || 
              (this.airlineName!=null &&
               this.airlineName.equals(other.getAirlineName()))) &&
-            this.creditCardNumber == other.getCreditCardNumber() &&
+            ((this.creditCardNumber==null && other.getCreditCardNumber()==null) || 
+             (this.creditCardNumber!=null &&
+              this.creditCardNumber.equals(other.getCreditCardNumber()))) &&
             ((this.currentStatus==null && other.getCurrentStatus()==null) || 
              (this.currentStatus!=null &&
               this.currentStatus.equals(other.getCurrentStatus()))) &&
@@ -460,7 +462,9 @@ public class Reservation  implements java.io.Serializable {
         if (getAirlineName() != null) {
             _hashCode += getAirlineName().hashCode();
         }
-        _hashCode += new Long(getCreditCardNumber()).hashCode();
+        if (getCreditCardNumber() != null) {
+            _hashCode += getCreditCardNumber().hashCode();
+        }
         if (getCurrentStatus() != null) {
             _hashCode += getCurrentStatus().hashCode();
         }
@@ -512,8 +516,8 @@ public class Reservation  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("creditCardNumber");
         elemField.setXmlName(new javax.xml.namespace.QName("http://reservation.model.goair", "creditCardNumber"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
-        elemField.setNillable(false);
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("currentStatus");

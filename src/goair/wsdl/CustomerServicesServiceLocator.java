@@ -22,7 +22,7 @@ public class CustomerServicesServiceLocator extends org.apache.axis.client.Servi
     }
 
     // Use to get a proxy class for CustomerServices
-    private java.lang.String CustomerServices_address = "http://localhost:8080/goAir/services/CustomerServices";
+    private java.lang.String CustomerServices_address = "http://localhost:8080/goAir1/services/CustomerServices";
 
     public java.lang.String getCustomerServicesAddress() {
         return CustomerServices_address;

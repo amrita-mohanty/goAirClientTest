@@ -34,24 +34,7 @@ public class EmployeeServicesSoapBindingStub extends org.apache.axis.client.Stub
         oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "employeeLoginReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        oper.addFault(new org.apache.axis.description.FaultDesc(
-                      new javax.xml.namespace.QName("http://wsdl.goair", "fault"),
-                      "goair.Exception.AirlineException",
-                      new javax.xml.namespace.QName("http://Exception.goair", "AirlineException"), 
-                      true
-                     ));
         _operations[0] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("viewEmployeeFlight");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://wsdl.goair", "searchFlightParam"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://util.goair", "SearchParametersForFlights"), goair.util.SearchParametersForFlights.class, false, false);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://flight.model.goair", "Flight"));
-        oper.setReturnClass(goair.model.flight.Flight[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "viewEmployeeFlightReturn"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[1] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("editEmployeeProfile");
@@ -60,6 +43,17 @@ public class EmployeeServicesSoapBindingStub extends org.apache.axis.client.Stub
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         oper.setReturnClass(int.class);
         oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "editEmployeeProfileReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[1] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("viewEmployeeFlight");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://wsdl.goair", "searchFlightParam"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://util.goair", "SearchParametersForFlights"), goair.util.SearchParametersForFlights.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://flight.model.goair", "Flight"));
+        oper.setReturnClass(goair.model.flight.Flight[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "viewEmployeeFlightReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[2] = oper;
@@ -109,13 +103,6 @@ public class EmployeeServicesSoapBindingStub extends org.apache.axis.client.Stub
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://Exception.goair", "AirlineException");
-            cachedSerQNames.add(qName);
-            cls = goair.Exception.AirlineException.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
             qName = new javax.xml.namespace.QName("http://flight.model.goair", "Flight");
             cachedSerQNames.add(qName);
             cls = goair.model.flight.Flight.class;
@@ -146,7 +133,7 @@ public class EmployeeServicesSoapBindingStub extends org.apache.axis.client.Stub
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-            qName = new javax.xml.namespace.QName("http://wsdl.goair", "ArrayOf_tns6_Customer");
+            qName = new javax.xml.namespace.QName("http://wsdl.goair", "ArrayOf_tns5_Customer");
             cachedSerQNames.add(qName);
             cls = goair.model.customer.Customer[].class;
             cachedSerClasses.add(cls);
@@ -221,7 +208,7 @@ public class EmployeeServicesSoapBindingStub extends org.apache.axis.client.Stub
         }
     }
 
-    public goair.model.employee.Employee employeeLogin(java.lang.String userName, java.lang.String password) throws java.rmi.RemoteException, goair.Exception.AirlineException {
+    public goair.model.employee.Employee employeeLogin(java.lang.String userName, java.lang.String password) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -251,48 +238,6 @@ public class EmployeeServicesSoapBindingStub extends org.apache.axis.client.Stub
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
-    if (axisFaultException.detail != null) {
-        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
-              throw (java.rmi.RemoteException) axisFaultException.detail;
-         }
-        if (axisFaultException.detail instanceof goair.Exception.AirlineException) {
-              throw (goair.Exception.AirlineException) axisFaultException.detail;
-         }
-   }
-  throw axisFaultException;
-}
-    }
-
-    public goair.model.flight.Flight[] viewEmployeeFlight(goair.util.SearchParametersForFlights searchFlightParam) throws java.rmi.RemoteException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[1]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "viewEmployeeFlight"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {searchFlightParam});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (goair.model.flight.Flight[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (goair.model.flight.Flight[]) org.apache.axis.utils.JavaUtils.convert(_resp, goair.model.flight.Flight[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
   throw axisFaultException;
 }
     }
@@ -302,7 +247,7 @@ public class EmployeeServicesSoapBindingStub extends org.apache.axis.client.Stub
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[2]);
+        _call.setOperation(_operations[1]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -324,6 +269,40 @@ public class EmployeeServicesSoapBindingStub extends org.apache.axis.client.Stub
                 return ((java.lang.Integer) _resp).intValue();
             } catch (java.lang.Exception _exception) {
                 return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public goair.model.flight.Flight[] viewEmployeeFlight(goair.util.SearchParametersForFlights searchFlightParam) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[2]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "viewEmployeeFlight"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {searchFlightParam});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (goair.model.flight.Flight[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (goair.model.flight.Flight[]) org.apache.axis.utils.JavaUtils.convert(_resp, goair.model.flight.Flight[].class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
