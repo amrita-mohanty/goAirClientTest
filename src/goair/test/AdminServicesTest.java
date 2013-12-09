@@ -1,5 +1,9 @@
 package goair.test;
 
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
 import java.rmi.RemoteException;
 import java.util.Date;
 import java.text.DateFormat;
@@ -20,54 +24,117 @@ import goair.wsdl.AdminServicesProxy;
 public class AdminServicesTest 
 {
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	
+
 	public static AdminServicesProxy adminServicesProxy = 
 			new AdminServicesProxy();
 	static {
-		adminServicesProxy.setEndpoint("http://localhost:8080/goAir1/services/AdminServices");
+		adminServicesProxy.setEndpoint("http://localhost:8080/goAir/services/AdminServices");
 	}
-	
+
+	@Test
 	public static void testAddCustomer()
 	{
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(new Date(System.currentTimeMillis()));
-		Customer customer = new Customer();
-		customer.setCustomerId("987-98-9876");
-		customer.setEmailId("a@gmail.com");customer.setPassword("test"); 
-		customer.setFirstName("Russel");customer.setLastName("Dumbar");
-		customer.setGender("Male"); customer.setAddress("1010 Morse Raod");
-		customer.setCity("Santa Clara");customer.setState("CA");
-		customer.setZipcode("95051");customer.setDob(cal);
-		customer.setNationality("American");customer.setPassportNum("CX456871");
-		try {
-			adminServicesProxy.addCustomer(customer);
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		for(int i=1;i<=100000;i++){
+
+			long startCustId = 863100000 + i;
+
+			String custid = "" + startCustId;
+
+			String customerIdInSNNFormat = custid.substring(0,3) +"-"+custid.substring(3,5) + "-"+custid.substring(5,9);
+
+			//System.out.println("customerIdInSNNFormat = " + customerIdInSNNFormat);
+
+			Calendar cal = Calendar.getInstance();
+
+			cal.setTime(new Date(System.currentTimeMillis()));
+
+			Customer customer = new Customer();
+
+			customer.setCustomerId(customerIdInSNNFormat);
+
+			customer.setEmailId("a@gmail.com" + startCustId);customer.setPassword("test" + i); 
+
+			customer.setFirstName("Russel" + i);customer.setLastName("Dumbar" + i);
+
+			customer.setGender("Male"); customer.setAddress("1010 Morse Raod" + i);
+
+			customer.setCity("Santa Clara");customer.setState("CA");
+
+			customer.setZipcode("95051");customer.setDob(cal);
+
+			customer.setNationality("American");customer.setPassportNum("CX456871" + i);
+
+			try {
+
+				int j = adminServicesProxy.addCustomer(customer);
+				if(j != 1)
+					fail("Cannot add customer");
+
+			} catch (RemoteException e) {
+
+				e.printStackTrace();
+
+			}
+
 		}
-		
+
 	}
-	
+
+
+
+	@Test
 	public static void testAddEmployee()
 	{
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(new Date(System.currentTimeMillis()));
-		Employee employee = new Employee();
-		employee.setEmployeeId("123-12-1234");
-		employee.setAirlineName("GoAir");
-		employee.setEmailId("russel1@gmail.com");employee.setPassword("test"); 
-		employee.setFirstName("Russel");employee.setLastName("Dumbar");
-		employee.setGender("Male"); employee.setAddress("1010 Morse Raod");
-		employee.setCity("Santa Clara");employee.setState("CA");
-		employee.setZipcode("95051");employee.setDob(cal);
-		employee.setAirlineName("American");employee.setHireDate(cal);
-		employee.setJobDesc("Testing");employee.setPosition("Ground Staff");
-		try {
-			adminServicesProxy.addEmployee(employee);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+
+	for(int i=1001;i<=5000;i++){
+
+	long startEmpId = 883100000 + i;
+
+	String empid = "" + startEmpId;
+
+	String customerIdInSNNFormat = empid.substring(0,3) +"-"+empid.substring(3,5) + "-"+empid.substring(5,9);
+
+	Calendar cal = Calendar.getInstance();
+
+	cal.setTime(new Date(System.currentTimeMillis()));
+
+	Employee employee = new Employee();
+
+	employee.setEmployeeId(customerIdInSNNFormat);
+
+	employee.setAirlineName("GoAir");
+
+	employee.setEmailId("russel1@gmail.com" + startEmpId );employee.setPassword("test" + i); 
+
+	employee.setFirstName("Andrew" + i);employee.setLastName("Peters" + i);
+
+	employee.setGender("Male"); employee.setAddress("1010 Morse Raod" + i);
+
+	employee.setCity("Santa Clara");employee.setState("CA");
+
+	employee.setZipcode("95051");employee.setDob(cal);
+
+	employee.setAirlineName("American");employee.setHireDate(cal);
+
+	employee.setJobDesc("Testing");employee.setPosition("Ground Staff");
+
+	try {
+
+	int j= adminServicesProxy.addEmployee(employee);
+	if(j != 1)
+		fail("Cannot add employee");
+
+	} catch (RemoteException e) {
+
+	e.printStackTrace();
+
 	}
-	
+
+	}
+
+	}
+
+	@Test
 	public static void testAddFlight() throws ParseException
 	{
 		Calendar cal = Calendar.getInstance();
@@ -95,12 +162,15 @@ public class AdminServicesTest
 		flight.setSource("Los Angeles");flight.setTicketPrice(450.56);
 		flight.setTotalSeats(500);
 		try {
-			adminServicesProxy.addFlight(flight);
+			int i= adminServicesProxy.addFlight(flight);
+			if(i != 1)
+				fail("Cannot add flight");
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
+	@Test
 	public static void testAddReservation()
 	{
 		Calendar cal = Calendar.getInstance();
@@ -122,12 +192,14 @@ public class AdminServicesTest
 		reservation.setCurrentStatus("ACTIVE");
 		try {
 			System.out.println(reservation.toString());
-			adminServicesProxy.addReservation(reservation);
+			int i= adminServicesProxy.addReservation(reservation);
+			if(i != 1)
+				fail("Cannot add reservation");
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testGetAllCustomer()
 	{
 		try {
@@ -139,11 +211,14 @@ public class AdminServicesTest
 					System.out.println("Customer : "+customer.toString());
 				}
 			}
+			else  {
+				fail("Cannot get customers for admin");
+			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testGetAllEmployee()
 	{
 		try {
@@ -155,11 +230,14 @@ public class AdminServicesTest
 					System.out.println("Employee : "+employee.toString());
 				}
 			}
+			else  {
+				fail("Cannot get employees for admin");
+			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testGetAllFlights()
 	{
 		try {
@@ -171,11 +249,15 @@ public class AdminServicesTest
 					System.out.println("Flight : "+flight.toString());
 				}
 			}
+			else   {
+				fail("Cannot get flights for admin");
+			}
+
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testGetAllReservation()
 	{
 		try {
@@ -187,24 +269,31 @@ public class AdminServicesTest
 					System.out.println("Reservation : "+reservation.toString());
 				}
 			}
+			else   {
+				fail("Cannot get reservations for admin");
+			}
+
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testEditCustomer()
 	{
 		try {
 			Customer customer = new Customer();
 			customer.setCustomerId("987-98-9876");
 			customer.setAddress("6754 Ellie Ave");
-			int retrunCode = adminServicesProxy.editCustomer(customer);
-			System.out.println("Edit customer completed with return code : "+retrunCode);
+			int returnCode = adminServicesProxy.editCustomer(customer);
+			System.out.println("Edit customer completed with return code : "+returnCode);
+			if(returnCode != 1)
+				fail("Cannot edit customer");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testEditEmployee()
 	{
 		try {
@@ -213,13 +302,15 @@ public class AdminServicesTest
 			employee.setAddress("6754 Ellie Ave");
 			Calendar cal = Calendar.getInstance();
 			employee.setHireDate(cal);
-			int retrunCode = adminServicesProxy.editEmployee(employee);
-			System.out.println("Edit customer completed with return code : "+retrunCode);
+			int returnCode = adminServicesProxy.editEmployee(employee);
+			System.out.println("Edit employee completed with return code : "+returnCode);
+			if(returnCode != 1)
+				fail("Cannot edit employee");
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testEditFlights() throws ParseException
 	{
 		try {
@@ -247,49 +338,57 @@ public class AdminServicesTest
 			flight.setSeatsAvailable(400);flight.setSeatsReserved(100);
 			flight.setSource("Los Angeles");flight.setTicketPrice(450.56);
 			flight.setTotalSeats(500);
-			int retrunCode = adminServicesProxy.editFlight(flight);
-			System.out.println("Edit customer completed with return code : "+retrunCode);
+			int returnCode = adminServicesProxy.editFlight(flight);
+			System.out.println("Edit flight completed with return code : "+returnCode);
+			if(returnCode != 1)
+				fail("Cannot edit flight");
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testDeleteCustomer()
 	{
 		try {
 			Customer customer = new Customer();
 			customer.setCustomerId("987-98-9876");
-			int retrunCode = adminServicesProxy.deleteCustomer(customer);
-			System.out.println("Delete customer completed with return code : "+retrunCode);
+			int returnCode = adminServicesProxy.deleteCustomer(customer);
+			System.out.println("Delete customer completed with return code : "+returnCode);
+			if(returnCode != 1)
+				fail("Cannot delete customer");
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testDeleteEmployee()
 	{
 		try {
 			Employee employee = new Employee();
 			employee.setEmployeeId("123-12-1234");
-			int retrunCode = adminServicesProxy.deleteEmployee(employee);
-			System.out.println("Delete employee completed with return code : "+retrunCode);
+			int returnCode = adminServicesProxy.deleteEmployee(employee);
+			System.out.println("Delete employee completed with return code : "+returnCode);
+			if(returnCode != 1)
+				fail("Cannot delete employee");
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testDeleteFlight()
 	{
 		try {
 			Flight flight = new Flight();
 			flight.setFlightId(1);
-			int retrunCode = adminServicesProxy.deleteFlight(flight);
-			System.out.println("Delete Flight completed with return code : "+retrunCode);
+			int returnCode = adminServicesProxy.deleteFlight(flight);
+			System.out.println("Delete Flight completed with return code : "+returnCode);
+			if(returnCode != 1)
+				fail("Cannot delete flight");
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testCancelReservation()
 	{
 		try {
@@ -297,13 +396,15 @@ public class AdminServicesTest
 			reservation.setPnr(1);
 			reservation.setFlightId(1);
 			reservation.setNumberOfSeatsBooked(46);
-			int retrunCode = adminServicesProxy.cancelReservation(reservation);
-			System.out.println("Cancel Reservation completed with return code : "+retrunCode);
+			int returnCode = adminServicesProxy.cancelReservation(reservation);
+			System.out.println("Cancel Reservation completed with return code : "+returnCode);
+			if(returnCode != 1)
+				fail("Cannot cancel reservation");
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testSearchCustomer()
 	{
 		try {
@@ -318,11 +419,14 @@ public class AdminServicesTest
 					System.out.println("Customer : "+customer.toString());
 				}
 			}
+			else  {
+				fail("Cannot search customer");
+			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testSearchEmployee()
 	{
 		try {
@@ -337,11 +441,14 @@ public class AdminServicesTest
 					System.out.println("Employee : "+employee.toString());
 				}
 			}
+			else  {
+				fail("Cannot search employee");
+			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testSearchFlight()
 	{
 		try {
@@ -357,11 +464,14 @@ public class AdminServicesTest
 					System.out.println("Flight : "+flight.toString());
 				}
 			}
+			else  {
+				fail("Cannot search flight");
+			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+	@Test
 	public static void testSearchReservation()
 	{
 		try {
@@ -376,42 +486,45 @@ public class AdminServicesTest
 					System.out.println("Reservation : "+reservation.toString());
 				}
 			}
+			else  {
+				fail("Cannot search reservation");
+			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args) throws ParseException
 	{
 		AdminServicesTest.testAddCustomer();
 		AdminServicesTest.testAddEmployee();
 		AdminServicesTest.testAddFlight();
 		AdminServicesTest.testAddReservation();
-		
-//		AdminServicesTest.testGetAllCustomer();
-//		AdminServicesTest.testGetAllEmployee();
-//		AdminServicesTest.testGetAllFlights();
-//		AdminServicesTest.testGetAllReservation();
-//		
-//		AdminServicesTest.testEditCustomer();
-//		AdminServicesTest.testEditEmployee();
-//		AdminServicesTest.testEditFlights();
-//		
-//		AdminServicesTest.testSearchCustomer();
-//		AdminServicesTest.testSearchEmployee();
-//		AdminServicesTest.testSearchFlight();
-//		AdminServicesTest.testSearchReservation();
-//		
-//		AdminServicesTest.testDeleteCustomer();
-//		AdminServicesTest.testDeleteEmployee();
-//		AdminServicesTest.testDeleteFlight();
-//		AdminServicesTest.testCancelReservation();
-//		
-//		AdminServicesTest.testGetAllCustomer();
-//		AdminServicesTest.testGetAllEmployee();
-//		AdminServicesTest.testGetAllFlights();
-//		AdminServicesTest.testGetAllReservation();
-		
+
+		//		AdminServicesTest.testGetAllCustomer();
+		//		AdminServicesTest.testGetAllEmployee();
+		//		AdminServicesTest.testGetAllFlights();
+		//		AdminServicesTest.testGetAllReservation();
+		//		
+		//		AdminServicesTest.testEditCustomer();
+		//		AdminServicesTest.testEditEmployee();
+		//		AdminServicesTest.testEditFlights();
+		//		
+		//		AdminServicesTest.testSearchCustomer();
+		//		AdminServicesTest.testSearchEmployee();
+		//		AdminServicesTest.testSearchFlight();
+		//		AdminServicesTest.testSearchReservation();
+		//		
+		//		AdminServicesTest.testDeleteCustomer();
+		//		AdminServicesTest.testDeleteEmployee();
+		//		AdminServicesTest.testDeleteFlight();
+		//		AdminServicesTest.testCancelReservation();
+		//		
+		//		AdminServicesTest.testGetAllCustomer();
+		//		AdminServicesTest.testGetAllEmployee();
+		//		AdminServicesTest.testGetAllFlights();
+		//		AdminServicesTest.testGetAllReservation();
+
 	}
 
 }
