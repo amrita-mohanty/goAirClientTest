@@ -12,10 +12,10 @@ public class EmployeeServicesTest {
 	public static EmployeeServicesProxy employeeServicesProxy = 
 			new EmployeeServicesProxy();
 	static {
-		employeeServicesProxy.setEndpoint("http://localhost:8080/goAir1/services/EmployeeServices");
+		employeeServicesProxy.setEndpoint("http://localhost:8080/goAir/services/EmployeeServices");
 	}
 	
-	public static void viewEmployeeFlights(int employeeId) {
+	public static void viewEmployeeFlights(String employeeId) {
 		
 		try {
 			SearchParametersForFlights searchFlightParam = new SearchParametersForFlights();
@@ -52,7 +52,7 @@ public class EmployeeServicesTest {
 	}
 	
 	public static void main(String[] args) {
-		//EmployeeServicesTest.viewEmployeeFlights(1);
+		EmployeeServicesTest.viewEmployeeFlights("987-98-9876");
 		EmployeeServicesTest.validateLogin("russel1@gmail.com", "testt");
 	}
 	

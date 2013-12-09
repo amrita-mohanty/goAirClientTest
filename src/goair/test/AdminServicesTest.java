@@ -32,6 +32,7 @@ public class AdminServicesTest
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date(System.currentTimeMillis()));
 		Customer customer = new Customer();
+		customer.setCustomerId("987-98-9876");
 		customer.setEmailId("a@gmail.com");customer.setPassword("test"); 
 		customer.setFirstName("Russel");customer.setLastName("Dumbar");
 		customer.setGender("Male"); customer.setAddress("1010 Morse Raod");
@@ -41,7 +42,6 @@ public class AdminServicesTest
 		try {
 			adminServicesProxy.addCustomer(customer);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -64,7 +64,6 @@ public class AdminServicesTest
 		try {
 			adminServicesProxy.addEmployee(employee);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -90,7 +89,7 @@ public class AdminServicesTest
 		date1 = dateFormat.parse("01-01-2014");
 		cal.setTime(date1);
 		flight.setFlyingEndDate(cal);
-		Customer passenger = new Customer(); passenger.setCustomerId(10000);
+		Customer passenger = new Customer(); passenger.setCustomerId("987-98-9876");
 		flight.setPassengers(new Customer[]{passenger});
 		flight.setSeatsAvailable(400);flight.setSeatsReserved(100);
 		flight.setSource("Los Angeles");flight.setTicketPrice(450.56);
@@ -98,7 +97,6 @@ public class AdminServicesTest
 		try {
 			adminServicesProxy.addFlight(flight);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -108,9 +106,9 @@ public class AdminServicesTest
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date(System.currentTimeMillis()));
 		Reservation reservation = new Reservation();
-		Customer customer = new Customer();customer.setCustomerId(10000);
+		Customer customer = new Customer();customer.setCustomerId("987-98-9876");
 		System.out.println(customer.toString());
-		reservation.setCustomerId(10000);
+		reservation.setCustomerId("987-98-9876");
 		Flight flight = new Flight();
 		flight.setFlightId(1);
 		System.out.println(flight.toString());
@@ -126,7 +124,6 @@ public class AdminServicesTest
 			System.out.println(reservation.toString());
 			adminServicesProxy.addReservation(reservation);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -143,7 +140,6 @@ public class AdminServicesTest
 				}
 			}
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -160,7 +156,6 @@ public class AdminServicesTest
 				}
 			}
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -177,7 +172,6 @@ public class AdminServicesTest
 				}
 			}
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -194,7 +188,6 @@ public class AdminServicesTest
 				}
 			}
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -203,12 +196,11 @@ public class AdminServicesTest
 	{
 		try {
 			Customer customer = new Customer();
-			customer.setCustomerId(10000);
+			customer.setCustomerId("987-98-9876");
 			customer.setAddress("6754 Ellie Ave");
 			int retrunCode = adminServicesProxy.editCustomer(customer);
 			System.out.println("Edit customer completed with return code : "+retrunCode);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -224,7 +216,6 @@ public class AdminServicesTest
 			int retrunCode = adminServicesProxy.editEmployee(employee);
 			System.out.println("Edit customer completed with return code : "+retrunCode);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -251,7 +242,7 @@ public class AdminServicesTest
 			date1 = dateFormat.parse("01-01-2014");
 			cal.setTime(date1);
 			flight.setFlyingEndDate(cal);
-			Customer passenger = new Customer(); passenger.setCustomerId(10000);
+			Customer passenger = new Customer(); passenger.setCustomerId("987-98-9876");
 			flight.setPassengers(new Customer[]{passenger});
 			flight.setSeatsAvailable(400);flight.setSeatsReserved(100);
 			flight.setSource("Los Angeles");flight.setTicketPrice(450.56);
@@ -259,7 +250,6 @@ public class AdminServicesTest
 			int retrunCode = adminServicesProxy.editFlight(flight);
 			System.out.println("Edit customer completed with return code : "+retrunCode);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -268,11 +258,10 @@ public class AdminServicesTest
 	{
 		try {
 			Customer customer = new Customer();
-			customer.setCustomerId(10000);
+			customer.setCustomerId("987-98-9876");
 			int retrunCode = adminServicesProxy.deleteCustomer(customer);
 			System.out.println("Delete customer completed with return code : "+retrunCode);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -285,7 +274,6 @@ public class AdminServicesTest
 			int retrunCode = adminServicesProxy.deleteEmployee(employee);
 			System.out.println("Delete employee completed with return code : "+retrunCode);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -298,7 +286,6 @@ public class AdminServicesTest
 			int retrunCode = adminServicesProxy.deleteFlight(flight);
 			System.out.println("Delete Flight completed with return code : "+retrunCode);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -313,7 +300,6 @@ public class AdminServicesTest
 			int retrunCode = adminServicesProxy.cancelReservation(reservation);
 			System.out.println("Cancel Reservation completed with return code : "+retrunCode);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -333,7 +319,6 @@ public class AdminServicesTest
 				}
 			}
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -353,7 +338,6 @@ public class AdminServicesTest
 				}
 			}
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -374,7 +358,6 @@ public class AdminServicesTest
 				}
 			}
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -394,7 +377,6 @@ public class AdminServicesTest
 				}
 			}
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -406,29 +388,29 @@ public class AdminServicesTest
 		AdminServicesTest.testAddFlight();
 		AdminServicesTest.testAddReservation();
 		
-		AdminServicesTest.testGetAllCustomer();
-		AdminServicesTest.testGetAllEmployee();
-		AdminServicesTest.testGetAllFlights();
-		AdminServicesTest.testGetAllReservation();
-		
-		AdminServicesTest.testEditCustomer();
-		AdminServicesTest.testEditEmployee();
-		AdminServicesTest.testEditFlights();
-		
-		AdminServicesTest.testSearchCustomer();
-		AdminServicesTest.testSearchEmployee();
-		AdminServicesTest.testSearchFlight();
-		AdminServicesTest.testSearchReservation();
-		
-		AdminServicesTest.testDeleteCustomer();
-		AdminServicesTest.testDeleteEmployee();
-		AdminServicesTest.testDeleteFlight();
-		AdminServicesTest.testCancelReservation();
-		
-		AdminServicesTest.testGetAllCustomer();
-		AdminServicesTest.testGetAllEmployee();
-		AdminServicesTest.testGetAllFlights();
-		AdminServicesTest.testGetAllReservation();
+//		AdminServicesTest.testGetAllCustomer();
+//		AdminServicesTest.testGetAllEmployee();
+//		AdminServicesTest.testGetAllFlights();
+//		AdminServicesTest.testGetAllReservation();
+//		
+//		AdminServicesTest.testEditCustomer();
+//		AdminServicesTest.testEditEmployee();
+//		AdminServicesTest.testEditFlights();
+//		
+//		AdminServicesTest.testSearchCustomer();
+//		AdminServicesTest.testSearchEmployee();
+//		AdminServicesTest.testSearchFlight();
+//		AdminServicesTest.testSearchReservation();
+//		
+//		AdminServicesTest.testDeleteCustomer();
+//		AdminServicesTest.testDeleteEmployee();
+//		AdminServicesTest.testDeleteFlight();
+//		AdminServicesTest.testCancelReservation();
+//		
+//		AdminServicesTest.testGetAllCustomer();
+//		AdminServicesTest.testGetAllEmployee();
+//		AdminServicesTest.testGetAllFlights();
+//		AdminServicesTest.testGetAllReservation();
 		
 	}
 
