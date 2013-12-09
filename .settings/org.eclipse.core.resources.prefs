@@ -16,3 +16,7 @@ encoding//src/goair/wsdl/CustomerServices.java=UTF-8
 encoding//src/goair/wsdl/CustomerServicesService.java=UTF-8
 encoding//src/goair/wsdl/CustomerServicesServiceLocator.java=UTF-8
 encoding//src/goair/wsdl/CustomerServicesSoapBindingStub.java=UTF-8
+encoding//src/goair/wsdl/EmployeeServices.java=UTF-8
+encoding//src/goair/wsdl/EmployeeServicesService.java=UTF-8
+encoding//src/goair/wsdl/EmployeeServicesServiceLocator.java=UTF-8
+encoding//src/goair/wsdl/EmployeeServicesSoapBindingStub.java=UTF-8

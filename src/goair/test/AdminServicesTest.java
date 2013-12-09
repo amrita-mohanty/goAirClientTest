@@ -11,6 +11,10 @@ import goair.model.customer.Customer;
 import goair.model.employee.Employee;
 import goair.model.flight.Flight;
 import goair.model.reservation.Reservation;
+import goair.util.SearchParametersForCustomers;
+import goair.util.SearchParametersForEmployees;
+import goair.util.SearchParametersForFlights;
+import goair.util.SearchParametersForReservation;
 import goair.wsdl.AdminServicesProxy;
 
 public class AdminServicesTest 
@@ -48,6 +52,8 @@ public class AdminServicesTest
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date(System.currentTimeMillis()));
 		Employee employee = new Employee();
+		employee.setEmployeeId("123-12-1234");
+		employee.setAirlineName("GoAir");
 		employee.setEmailId("russel1@gmail.com");employee.setPassword("test"); 
 		employee.setFirstName("Russel");employee.setLastName("Dumbar");
 		employee.setGender("Male"); employee.setAddress("1010 Morse Raod");
@@ -70,8 +76,9 @@ public class AdminServicesTest
 		Flight flight = new Flight();
 		flight.setArrivalTime(cal);
 		Employee crew = new Employee();
-		crew.setEmployeeId(10000);
+		crew.setEmployeeId("123-12-1234");
 		flight.setCrewDetails(new Employee[]{crew});
+		flight.setAirlineName("GoAir");
 		flight.setCurrentStatus("ACTIVE");flight.setDaysOfWeek("Monday,Tuesday");
 		flight.setDepartureTime(cal);flight.setDestination("San Francisco");
 		flight.setFlightName("CX987");flight.setFlightStatus("Started");
@@ -108,7 +115,7 @@ public class AdminServicesTest
 		flight.setFlightId(1);
 		System.out.println(flight.toString());
 		reservation.setFlightId(1);
-		reservation.setCreditCardNumber(346576857);
+		reservation.setCreditCardNumber("1234123412341234");
 		reservation.setDateOfBooking(cal);
 		reservation.setDateOfFlying(cal);
 		reservation.setNumberOfSeatsBooked(46);
@@ -210,7 +217,7 @@ public class AdminServicesTest
 	{
 		try {
 			Employee employee = new Employee();
-			employee.setEmployeeId(10000);
+			employee.setEmployeeId("123-12-1234");
 			employee.setAddress("6754 Ellie Ave");
 			Calendar cal = Calendar.getInstance();
 			employee.setHireDate(cal);
@@ -231,7 +238,7 @@ public class AdminServicesTest
 			cal.setTime(new Date(System.currentTimeMillis()));
 			flight.setArrivalTime(cal);
 			Employee crew = new Employee();
-			crew.setEmployeeId(10000);
+			crew.setEmployeeId("123-12-1234");
 			flight.setCrewDetails(new Employee[]{crew});
 			flight.setCurrentStatus("ACTIVE");flight.setDaysOfWeek("Monday");
 			flight.setDepartureTime(cal);flight.setDestination("San Diego");
@@ -274,7 +281,7 @@ public class AdminServicesTest
 	{
 		try {
 			Employee employee = new Employee();
-			employee.setEmployeeId(10000);
+			employee.setEmployeeId("123-12-1234");
 			int retrunCode = adminServicesProxy.deleteEmployee(employee);
 			System.out.println("Delete employee completed with return code : "+retrunCode);
 		} catch (RemoteException e) {
@@ -311,6 +318,87 @@ public class AdminServicesTest
 		}
 	}
 	
+	public static void testSearchCustomer()
+	{
+		try {
+			SearchParametersForCustomers searchParameters = new SearchParametersForCustomers();
+			searchParameters.setCustomerId(10000);
+			Customer[] customers = adminServicesProxy.searchCustomersForAdmin(searchParameters);
+			System.out.println("Search customer completed for search parameter : "+searchParameters.toString());
+			if(customers != null)
+			{
+				for (Customer customer : customers)
+				{
+					System.out.println("Customer : "+customer.toString());
+				}
+			}
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void testSearchEmployee()
+	{
+		try {
+			SearchParametersForEmployees searchParameters = new SearchParametersForEmployees();
+			searchParameters.setEmployeeId("123-12-1234");
+			Employee[] employees = adminServicesProxy.searchEmployeesForAdmin(searchParameters);
+			System.out.println("Search employees completed for search parameter : "+searchParameters.toString());
+			if(employees != null)
+			{
+				for (Employee employee : employees)
+				{
+					System.out.println("Employee : "+employee.toString());
+				}
+			}
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void testSearchFlight()
+	{
+		try {
+			SearchParametersForFlights searchParameters = new SearchParametersForFlights();
+			searchParameters.setFlightId(1);
+			searchParameters.setSource("Los Angeles");
+			Flight[] flights = adminServicesProxy.searchFlightsForAdmin(searchParameters);
+			System.out.println("Search flights completed for search parameter : "+searchParameters.toString());
+			if(flights != null)
+			{
+				for (Flight flight : flights)
+				{
+					System.out.println("Flight : "+flight.toString());
+				}
+			}
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void testSearchReservation()
+	{
+		try {
+			SearchParametersForReservation searchParameters = new SearchParametersForReservation();
+			searchParameters.setFlightId(1);
+			Reservation[] reservations = adminServicesProxy.searchReservationsForAdmin(searchParameters);
+			System.out.println("Search reservation completed for search parameter : "+searchParameters.toString());
+			if(reservations != null)
+			{
+				for (Reservation reservation : reservations)
+				{
+					System.out.println("Reservation : "+reservation.toString());
+				}
+			}
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public static void main(String[] args) throws ParseException
 	{
 		AdminServicesTest.testAddCustomer();
@@ -327,6 +415,11 @@ public class AdminServicesTest
 		AdminServicesTest.testEditEmployee();
 		AdminServicesTest.testEditFlights();
 		
+		AdminServicesTest.testSearchCustomer();
+		AdminServicesTest.testSearchEmployee();
+		AdminServicesTest.testSearchFlight();
+		AdminServicesTest.testSearchReservation();
+		
 		AdminServicesTest.testDeleteCustomer();
 		AdminServicesTest.testDeleteEmployee();
 		AdminServicesTest.testDeleteFlight();
@@ -336,6 +429,7 @@ public class AdminServicesTest
 		AdminServicesTest.testGetAllEmployee();
 		AdminServicesTest.testGetAllFlights();
 		AdminServicesTest.testGetAllReservation();
+		
 	}
 
 }

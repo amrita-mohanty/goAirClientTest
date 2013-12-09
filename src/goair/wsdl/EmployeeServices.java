@@ -8,7 +8,7 @@
 package goair.wsdl;
 
 public interface EmployeeServices extends java.rmi.Remote {
-    public goair.model.employee.Employee employeeLogin(java.lang.String userName, java.lang.String password) throws java.rmi.RemoteException, goair.Exception.AirlineException;
-    public goair.model.flight.Flight[] viewEmployeeFlight(goair.util.SearchParametersForFlights searchFlightParam) throws java.rmi.RemoteException;
+    public goair.model.employee.Employee employeeLogin(java.lang.String userName, java.lang.String password) throws java.rmi.RemoteException;
     public int editEmployeeProfile(goair.model.employee.Employee employeeBean) throws java.rmi.RemoteException;
+    public goair.model.flight.Flight[] viewEmployeeFlight(goair.util.SearchParametersForFlights searchFlightParam) throws java.rmi.RemoteException;
 }

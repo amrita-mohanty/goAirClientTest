@@ -12,17 +12,21 @@ public class SearchParametersForFlights  implements java.io.Serializable {
 
     private java.util.Calendar arrivalTime;
 
+    private java.lang.Integer customerId;
+
     private java.util.Calendar dateOfFlying;
 
     private java.util.Calendar departureTime;
 
     private java.lang.String destination;
 
-    private int employeeId;
+    private java.lang.Integer employeeId;
 
-    private java.lang.String flightNumber;
+    private java.lang.Integer flightId;
 
-    private int numberOfSeatsAvialable;
+    private java.lang.String flightName;
+
+    private java.lang.Integer numberOfSeatsAvialable;
 
     private java.lang.String source;
 
@@ -32,20 +36,24 @@ public class SearchParametersForFlights  implements java.io.Serializable {
     public SearchParametersForFlights(
            java.lang.String airlineName,
            java.util.Calendar arrivalTime,
+           java.lang.Integer customerId,
            java.util.Calendar dateOfFlying,
            java.util.Calendar departureTime,
            java.lang.String destination,
-           int employeeId,
-           java.lang.String flightNumber,
-           int numberOfSeatsAvialable,
+           java.lang.Integer employeeId,
+           java.lang.Integer flightId,
+           java.lang.String flightName,
+           java.lang.Integer numberOfSeatsAvialable,
            java.lang.String source) {
            this.airlineName = airlineName;
            this.arrivalTime = arrivalTime;
+           this.customerId = customerId;
            this.dateOfFlying = dateOfFlying;
            this.departureTime = departureTime;
            this.destination = destination;
            this.employeeId = employeeId;
-           this.flightNumber = flightNumber;
+           this.flightId = flightId;
+           this.flightName = flightName;
            this.numberOfSeatsAvialable = numberOfSeatsAvialable;
            this.source = source;
     }
@@ -88,6 +96,26 @@ public class SearchParametersForFlights  implements java.io.Serializable {
      */
     public void setArrivalTime(java.util.Calendar arrivalTime) {
         this.arrivalTime = arrivalTime;
+    }
+
+
+    /**
+     * Gets the customerId value for this SearchParametersForFlights.
+     * 
+     * @return customerId
+     */
+    public java.lang.Integer getCustomerId() {
+        return customerId;
+    }
+
+
+    /**
+     * Sets the customerId value for this SearchParametersForFlights.
+     * 
+     * @param customerId
+     */
+    public void setCustomerId(java.lang.Integer customerId) {
+        this.customerId = customerId;
     }
 
 
@@ -156,7 +184,7 @@ public class SearchParametersForFlights  implements java.io.Serializable {
      * 
      * @return employeeId
      */
-    public int getEmployeeId() {
+    public java.lang.Integer getEmployeeId() {
         return employeeId;
     }
 
@@ -166,28 +194,48 @@ public class SearchParametersForFlights  implements java.io.Serializable {
      * 
      * @param employeeId
      */
-    public void setEmployeeId(int employeeId) {
+    public void setEmployeeId(java.lang.Integer employeeId) {
         this.employeeId = employeeId;
     }
 
 
     /**
-     * Gets the flightNumber value for this SearchParametersForFlights.
+     * Gets the flightId value for this SearchParametersForFlights.
      * 
-     * @return flightNumber
+     * @return flightId
      */
-    public java.lang.String getFlightNumber() {
-        return flightNumber;
+    public java.lang.Integer getFlightId() {
+        return flightId;
     }
 
 
     /**
-     * Sets the flightNumber value for this SearchParametersForFlights.
+     * Sets the flightId value for this SearchParametersForFlights.
      * 
-     * @param flightNumber
+     * @param flightId
      */
-    public void setFlightNumber(java.lang.String flightNumber) {
-        this.flightNumber = flightNumber;
+    public void setFlightId(java.lang.Integer flightId) {
+        this.flightId = flightId;
+    }
+
+
+    /**
+     * Gets the flightName value for this SearchParametersForFlights.
+     * 
+     * @return flightName
+     */
+    public java.lang.String getFlightName() {
+        return flightName;
+    }
+
+
+    /**
+     * Sets the flightName value for this SearchParametersForFlights.
+     * 
+     * @param flightName
+     */
+    public void setFlightName(java.lang.String flightName) {
+        this.flightName = flightName;
     }
 
 
@@ -196,7 +244,7 @@ public class SearchParametersForFlights  implements java.io.Serializable {
      * 
      * @return numberOfSeatsAvialable
      */
-    public int getNumberOfSeatsAvialable() {
+    public java.lang.Integer getNumberOfSeatsAvialable() {
         return numberOfSeatsAvialable;
     }
 
@@ -206,7 +254,7 @@ public class SearchParametersForFlights  implements java.io.Serializable {
      * 
      * @param numberOfSeatsAvialable
      */
-    public void setNumberOfSeatsAvialable(int numberOfSeatsAvialable) {
+    public void setNumberOfSeatsAvialable(java.lang.Integer numberOfSeatsAvialable) {
         this.numberOfSeatsAvialable = numberOfSeatsAvialable;
     }
 
@@ -248,6 +296,9 @@ public class SearchParametersForFlights  implements java.io.Serializable {
             ((this.arrivalTime==null && other.getArrivalTime()==null) || 
              (this.arrivalTime!=null &&
               this.arrivalTime.equals(other.getArrivalTime()))) &&
+            ((this.customerId==null && other.getCustomerId()==null) || 
+             (this.customerId!=null &&
+              this.customerId.equals(other.getCustomerId()))) &&
             ((this.dateOfFlying==null && other.getDateOfFlying()==null) || 
              (this.dateOfFlying!=null &&
               this.dateOfFlying.equals(other.getDateOfFlying()))) &&
@@ -257,11 +308,18 @@ public class SearchParametersForFlights  implements java.io.Serializable {
             ((this.destination==null && other.getDestination()==null) || 
              (this.destination!=null &&
               this.destination.equals(other.getDestination()))) &&
-            this.employeeId == other.getEmployeeId() &&
-            ((this.flightNumber==null && other.getFlightNumber()==null) || 
-             (this.flightNumber!=null &&
-              this.flightNumber.equals(other.getFlightNumber()))) &&
-            this.numberOfSeatsAvialable == other.getNumberOfSeatsAvialable() &&
+            ((this.employeeId==null && other.getEmployeeId()==null) || 
+             (this.employeeId!=null &&
+              this.employeeId.equals(other.getEmployeeId()))) &&
+            ((this.flightId==null && other.getFlightId()==null) || 
+             (this.flightId!=null &&
+              this.flightId.equals(other.getFlightId()))) &&
+            ((this.flightName==null && other.getFlightName()==null) || 
+             (this.flightName!=null &&
+              this.flightName.equals(other.getFlightName()))) &&
+            ((this.numberOfSeatsAvialable==null && other.getNumberOfSeatsAvialable()==null) || 
+             (this.numberOfSeatsAvialable!=null &&
+              this.numberOfSeatsAvialable.equals(other.getNumberOfSeatsAvialable()))) &&
             ((this.source==null && other.getSource()==null) || 
              (this.source!=null &&
               this.source.equals(other.getSource())));
@@ -282,6 +340,9 @@ public class SearchParametersForFlights  implements java.io.Serializable {
         if (getArrivalTime() != null) {
             _hashCode += getArrivalTime().hashCode();
         }
+        if (getCustomerId() != null) {
+            _hashCode += getCustomerId().hashCode();
+        }
         if (getDateOfFlying() != null) {
             _hashCode += getDateOfFlying().hashCode();
         }
@@ -291,11 +352,18 @@ public class SearchParametersForFlights  implements java.io.Serializable {
         if (getDestination() != null) {
             _hashCode += getDestination().hashCode();
         }
-        _hashCode += getEmployeeId();
-        if (getFlightNumber() != null) {
-            _hashCode += getFlightNumber().hashCode();
+        if (getEmployeeId() != null) {
+            _hashCode += getEmployeeId().hashCode();
         }
-        _hashCode += getNumberOfSeatsAvialable();
+        if (getFlightId() != null) {
+            _hashCode += getFlightId().hashCode();
+        }
+        if (getFlightName() != null) {
+            _hashCode += getFlightName().hashCode();
+        }
+        if (getNumberOfSeatsAvialable() != null) {
+            _hashCode += getNumberOfSeatsAvialable().hashCode();
+        }
         if (getSource() != null) {
             _hashCode += getSource().hashCode();
         }
@@ -322,6 +390,12 @@ public class SearchParametersForFlights  implements java.io.Serializable {
         elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("customerId");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "customerId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("dateOfFlying");
         elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "dateOfFlying"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "dateTime"));
@@ -343,11 +417,17 @@ public class SearchParametersForFlights  implements java.io.Serializable {
         elemField.setFieldName("employeeId");
         elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "employeeId"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setNillable(false);
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("flightNumber");
-        elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "flightNumber"));
+        elemField.setFieldName("flightId");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "flightId"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("flightName");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "flightName"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
@@ -355,7 +435,7 @@ public class SearchParametersForFlights  implements java.io.Serializable {
         elemField.setFieldName("numberOfSeatsAvialable");
         elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "numberOfSeatsAvialable"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setNillable(false);
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("source");
