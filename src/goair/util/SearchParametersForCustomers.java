@@ -14,7 +14,7 @@ public class SearchParametersForCustomers  implements java.io.Serializable {
 
     private java.lang.String currentStatus;
 
-    private int customerId;
+    private java.lang.String customerId;
 
     private java.util.Calendar dob;
 
@@ -43,7 +43,7 @@ public class SearchParametersForCustomers  implements java.io.Serializable {
            java.lang.String address,
            java.lang.String city,
            java.lang.String currentStatus,
-           int customerId,
+           java.lang.String customerId,
            java.util.Calendar dob,
            java.lang.String emailId,
            java.lang.String firstName,
@@ -136,7 +136,7 @@ public class SearchParametersForCustomers  implements java.io.Serializable {
      * 
      * @return customerId
      */
-    public int getCustomerId() {
+    public java.lang.String getCustomerId() {
         return customerId;
     }
 
@@ -146,7 +146,7 @@ public class SearchParametersForCustomers  implements java.io.Serializable {
      * 
      * @param customerId
      */
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(java.lang.String customerId) {
         this.customerId = customerId;
     }
 
@@ -371,7 +371,9 @@ public class SearchParametersForCustomers  implements java.io.Serializable {
             ((this.currentStatus==null && other.getCurrentStatus()==null) || 
              (this.currentStatus!=null &&
               this.currentStatus.equals(other.getCurrentStatus()))) &&
-            this.customerId == other.getCustomerId() &&
+            ((this.customerId==null && other.getCustomerId()==null) || 
+             (this.customerId!=null &&
+              this.customerId.equals(other.getCustomerId()))) &&
             ((this.dob==null && other.getDob()==null) || 
              (this.dob!=null &&
               this.dob.equals(other.getDob()))) &&
@@ -422,7 +424,9 @@ public class SearchParametersForCustomers  implements java.io.Serializable {
         if (getCurrentStatus() != null) {
             _hashCode += getCurrentStatus().hashCode();
         }
-        _hashCode += getCustomerId();
+        if (getCustomerId() != null) {
+            _hashCode += getCustomerId().hashCode();
+        }
         if (getDob() != null) {
             _hashCode += getDob().hashCode();
         }
@@ -484,8 +488,8 @@ public class SearchParametersForCustomers  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("customerId");
         elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "customerId"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setNillable(false);
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("dob");

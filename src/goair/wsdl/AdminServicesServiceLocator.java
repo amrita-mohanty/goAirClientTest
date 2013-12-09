@@ -22,7 +22,7 @@ public class AdminServicesServiceLocator extends org.apache.axis.client.Service 
     }
 
     // Use to get a proxy class for AdminServices
-    private java.lang.String AdminServices_address = "http://localhost:8080/goAir1/services/AdminServices";
+    private java.lang.String AdminServices_address = "http://localhost:8082/goAir/services/AdminServices";
 
     public java.lang.String getAdminServicesAddress() {
         return AdminServices_address;

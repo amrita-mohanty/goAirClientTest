@@ -170,5 +170,17 @@ public class AdminServicesProxy implements goair.wsdl.AdminServices {
     return adminServices.getAllFlightsForAdmin();
   }
   
+  public goair.model.employee.Employee[] getEmpployeesForFlight(int flightId) throws java.rmi.RemoteException{
+    if (adminServices == null)
+      _initAdminServicesProxy();
+    return adminServices.getEmpployeesForFlight(flightId);
+  }
+  
+  public goair.model.customer.Customer[] getCustomersForFlight(int flightId) throws java.rmi.RemoteException{
+    if (adminServices == null)
+      _initAdminServicesProxy();
+    return adminServices.getCustomersForFlight(flightId);
+  }
+  
   
 }

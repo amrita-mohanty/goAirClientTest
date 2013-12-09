@@ -28,7 +28,7 @@ public class AdminServicesTest
 	public static AdminServicesProxy adminServicesProxy = 
 			new AdminServicesProxy();
 	static {
-		adminServicesProxy.setEndpoint("http://localhost:8080/goAir/services/AdminServices");
+		adminServicesProxy.setEndpoint("http://localhost:8082/goAir/services/AdminServices");
 	}
 
 	@Test
@@ -86,87 +86,95 @@ public class AdminServicesTest
 	public static void testAddEmployee()
 	{
 
-	for(int i=1001;i<=5000;i++){
+		for(int i=1;i<=5000;i++){
 
-	long startEmpId = 883100000 + i;
+			long startEmpId = 883100000 + i;
 
-	String empid = "" + startEmpId;
+			String empid = "" + startEmpId;
 
-	String customerIdInSNNFormat = empid.substring(0,3) +"-"+empid.substring(3,5) + "-"+empid.substring(5,9);
+			String empIdInSNNFormat = empid.substring(0,3) +"-"+empid.substring(3,5) + "-"+empid.substring(5,9);
 
-	Calendar cal = Calendar.getInstance();
+			Calendar cal = Calendar.getInstance();
 
-	cal.setTime(new Date(System.currentTimeMillis()));
+			cal.setTime(new Date(System.currentTimeMillis()));
 
-	Employee employee = new Employee();
+			Employee employee = new Employee();
 
-	employee.setEmployeeId(customerIdInSNNFormat);
+			employee.setEmployeeId(empIdInSNNFormat);
 
-	employee.setAirlineName("GoAir");
+			employee.setAirlineName("GoAir");
 
-	employee.setEmailId("russel1@gmail.com" + startEmpId );employee.setPassword("test" + i); 
+			employee.setEmailId("russel1@gmail.com" + startEmpId );employee.setPassword("test" + i); 
 
-	employee.setFirstName("Andrew" + i);employee.setLastName("Peters" + i);
+			employee.setFirstName("Andrew" + i);employee.setLastName("Peters" + i);
 
-	employee.setGender("Male"); employee.setAddress("1010 Morse Raod" + i);
+			employee.setGender("Male"); employee.setAddress("1010 Morse Raod" + i);
 
-	employee.setCity("Santa Clara");employee.setState("CA");
+			employee.setCity("Santa Clara");employee.setState("CA");
 
-	employee.setZipcode("95051");employee.setDob(cal);
+			employee.setZipcode("95051");employee.setDob(cal);
 
-	employee.setAirlineName("American");employee.setHireDate(cal);
+			employee.setAirlineName("American");employee.setHireDate(cal);
 
-	employee.setJobDesc("Testing");employee.setPosition("Ground Staff");
+			employee.setJobDesc("Testing");employee.setPosition("Ground Staff");
 
-	try {
+			try {
 
-	int j= adminServicesProxy.addEmployee(employee);
-	if(j != 1)
-		fail("Cannot add employee");
+				int j= adminServicesProxy.addEmployee(employee);
+				if(j != 1)
+					fail("Cannot add employee");
 
-	} catch (RemoteException e) {
+			} catch (RemoteException e) {
 
-	e.printStackTrace();
+				e.printStackTrace();
 
-	}
-
-	}
-
+			}
+		}
 	}
 
 	@Test
 	public static void testAddFlight() throws ParseException
 	{
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(new Date(System.currentTimeMillis()));
-		Flight flight = new Flight();
-		flight.setArrivalTime(cal);
-		Employee crew = new Employee();
-		crew.setEmployeeId("123-12-1234");
-		flight.setCrewDetails(new Employee[]{crew});
-		flight.setAirlineName("GoAir");
-		flight.setCurrentStatus("ACTIVE");flight.setDaysOfWeek("Monday,Tuesday");
-		flight.setDepartureTime(cal);flight.setDestination("San Francisco");
-		flight.setFlightName("CX987");flight.setFlightStatus("Started");
-		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		Date date1 = dateFormat.parse("01-11-2013");
-		cal.setTime(date1);
-		flight.setFlyingStartDate(cal);
-		cal = Calendar.getInstance();
-		date1 = dateFormat.parse("01-01-2014");
-		cal.setTime(date1);
-		flight.setFlyingEndDate(cal);
-		Customer passenger = new Customer(); passenger.setCustomerId("987-98-9876");
-		flight.setPassengers(new Customer[]{passenger});
-		flight.setSeatsAvailable(400);flight.setSeatsReserved(100);
-		flight.setSource("Los Angeles");flight.setTicketPrice(450.56);
-		flight.setTotalSeats(500);
-		try {
-			int i= adminServicesProxy.addFlight(flight);
-			if(i != 1)
-				fail("Cannot add flight");
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		for(int j=2;j<=5000;j++) {
+			long startEmpId = 883100000 + j;
+			String empid = "" + startEmpId;
+			String empIdInSNNFormat = empid.substring(0,3) +"-"+empid.substring(3,5) + "-"+empid.substring(5,9);
+			
+			long startCustId = 863100000 + j;
+			String custid = "" + startCustId;
+			String customerIdInSNNFormat = custid.substring(0,3) +"-"+custid.substring(3,5) + "-"+custid.substring(5,9);
+			
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(new Date(System.currentTimeMillis()));
+			Flight flight = new Flight();
+			flight.setArrivalTime(cal);
+			Employee crew = new Employee();
+			crew.setEmployeeId(empIdInSNNFormat);
+			flight.setCrewDetails(new Employee[]{crew});
+			flight.setAirlineName("GoAir");
+			flight.setCurrentStatus("ACTIVE");flight.setDaysOfWeek("Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday");
+			flight.setDepartureTime(cal);flight.setDestination("San Francisco");
+			flight.setFlightName("CX987"+j);flight.setFlightStatus("Started");
+			DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			Date date1 = dateFormat.parse("01-11-2013");
+			cal.setTime(date1);
+			flight.setFlyingStartDate(cal);
+			cal = Calendar.getInstance();
+			date1 = dateFormat.parse("01-01-2014");
+			cal.setTime(date1);
+			flight.setFlyingEndDate(cal);
+			Customer passenger = new Customer(); passenger.setCustomerId(customerIdInSNNFormat);
+			flight.setPassengers(new Customer[]{passenger});
+			flight.setSeatsAvailable(400);flight.setSeatsReserved(100);
+			flight.setSource("Los Angeles");flight.setTicketPrice(450.56);
+			flight.setTotalSeats(500);
+			try {
+				int i= adminServicesProxy.addFlight(flight);
+				if(i != 1)
+					fail("Cannot add flight");
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -409,7 +417,7 @@ public class AdminServicesTest
 	{
 		try {
 			SearchParametersForCustomers searchParameters = new SearchParametersForCustomers();
-			searchParameters.setCustomerId(10000);
+			searchParameters.setCustomerId("987-98-9876");
 			Customer[] customers = adminServicesProxy.searchCustomersForAdmin(searchParameters);
 			System.out.println("Search customer completed for search parameter : "+searchParameters.toString());
 			if(customers != null)
@@ -431,7 +439,7 @@ public class AdminServicesTest
 	{
 		try {
 			SearchParametersForEmployees searchParameters = new SearchParametersForEmployees();
-			searchParameters.setEmployeeId("123-12-1234");
+			searchParameters.setEmployeeId("883-10-1001");
 			Employee[] employees = adminServicesProxy.searchEmployeesForAdmin(searchParameters);
 			System.out.println("Search employees completed for search parameter : "+searchParameters.toString());
 			if(employees != null)
@@ -496,10 +504,10 @@ public class AdminServicesTest
 
 	public static void main(String[] args) throws ParseException
 	{
-		AdminServicesTest.testAddCustomer();
-		AdminServicesTest.testAddEmployee();
-		AdminServicesTest.testAddFlight();
-		AdminServicesTest.testAddReservation();
+		//AdminServicesTest.testAddCustomer();
+		//AdminServicesTest.testAddEmployee();
+		//AdminServicesTest.testAddFlight();
+		//AdminServicesTest.testAddReservation();
 
 		//		AdminServicesTest.testGetAllCustomer();
 		//		AdminServicesTest.testGetAllEmployee();
@@ -511,7 +519,7 @@ public class AdminServicesTest
 		//		AdminServicesTest.testEditFlights();
 		//		
 		//		AdminServicesTest.testSearchCustomer();
-		//		AdminServicesTest.testSearchEmployee();
+				AdminServicesTest.testSearchEmployee();
 		//		AdminServicesTest.testSearchFlight();
 		//		AdminServicesTest.testSearchReservation();
 		//		
