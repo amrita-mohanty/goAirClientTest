@@ -16,7 +16,7 @@ public class Reservation  implements java.io.Serializable {
 
     private java.lang.String customerFirstName;
 
-    private int customerId;
+    private java.lang.String customerId;
 
     private java.lang.String customerLastName;
 
@@ -48,7 +48,7 @@ public class Reservation  implements java.io.Serializable {
            java.lang.String creditCardNumber,
            java.lang.String currentStatus,
            java.lang.String customerFirstName,
-           int customerId,
+           java.lang.String customerId,
            java.lang.String customerLastName,
            java.util.Calendar dateOfBooking,
            java.util.Calendar dateOfFlying,
@@ -164,7 +164,7 @@ public class Reservation  implements java.io.Serializable {
      * 
      * @return customerId
      */
-    public int getCustomerId() {
+    public java.lang.String getCustomerId() {
         return customerId;
     }
 
@@ -174,7 +174,7 @@ public class Reservation  implements java.io.Serializable {
      * 
      * @param customerId
      */
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(java.lang.String customerId) {
         this.customerId = customerId;
     }
 
@@ -422,7 +422,9 @@ public class Reservation  implements java.io.Serializable {
             ((this.customerFirstName==null && other.getCustomerFirstName()==null) || 
              (this.customerFirstName!=null &&
               this.customerFirstName.equals(other.getCustomerFirstName()))) &&
-            this.customerId == other.getCustomerId() &&
+            ((this.customerId==null && other.getCustomerId()==null) || 
+             (this.customerId!=null &&
+              this.customerId.equals(other.getCustomerId()))) &&
             ((this.customerLastName==null && other.getCustomerLastName()==null) || 
              (this.customerLastName!=null &&
               this.customerLastName.equals(other.getCustomerLastName()))) &&
@@ -471,7 +473,9 @@ public class Reservation  implements java.io.Serializable {
         if (getCustomerFirstName() != null) {
             _hashCode += getCustomerFirstName().hashCode();
         }
-        _hashCode += getCustomerId();
+        if (getCustomerId() != null) {
+            _hashCode += getCustomerId().hashCode();
+        }
         if (getCustomerLastName() != null) {
             _hashCode += getCustomerLastName().hashCode();
         }
@@ -534,8 +538,8 @@ public class Reservation  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("customerId");
         elemField.setXmlName(new javax.xml.namespace.QName("http://reservation.model.goair", "customerId"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setNillable(false);
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("customerLastName");

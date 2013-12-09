@@ -20,7 +20,7 @@ public class SearchParametersForFlights  implements java.io.Serializable {
 
     private java.lang.String destination;
 
-    private java.lang.Integer employeeId;
+    private java.lang.String employeeId;
 
     private java.lang.Integer flightId;
 
@@ -40,7 +40,7 @@ public class SearchParametersForFlights  implements java.io.Serializable {
            java.util.Calendar dateOfFlying,
            java.util.Calendar departureTime,
            java.lang.String destination,
-           java.lang.Integer employeeId,
+           java.lang.String employeeId,
            java.lang.Integer flightId,
            java.lang.String flightName,
            java.lang.Integer numberOfSeatsAvialable,
@@ -184,7 +184,7 @@ public class SearchParametersForFlights  implements java.io.Serializable {
      * 
      * @return employeeId
      */
-    public java.lang.Integer getEmployeeId() {
+    public java.lang.String getEmployeeId() {
         return employeeId;
     }
 
@@ -194,7 +194,7 @@ public class SearchParametersForFlights  implements java.io.Serializable {
      * 
      * @param employeeId
      */
-    public void setEmployeeId(java.lang.Integer employeeId) {
+    public void setEmployeeId(java.lang.String employeeId) {
         this.employeeId = employeeId;
     }
 
@@ -416,7 +416,7 @@ public class SearchParametersForFlights  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("employeeId");
         elemField.setXmlName(new javax.xml.namespace.QName("http://util.goair", "employeeId"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();

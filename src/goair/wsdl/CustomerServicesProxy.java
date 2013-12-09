@@ -50,24 +50,6 @@ public class CustomerServicesProxy implements goair.wsdl.CustomerServices {
     customerServices.main(args);
   }
   
-  public goair.model.flight.Flight[] searchFlights(goair.util.SearchParametersForFlights searchFlightParam) throws java.rmi.RemoteException{
-    if (customerServices == null)
-      _initCustomerServicesProxy();
-    return customerServices.searchFlights(searchFlightParam);
-  }
-  
-  public goair.model.customer.Customer customerLogin(java.lang.String emailId, java.lang.String password) throws java.rmi.RemoteException{
-    if (customerServices == null)
-      _initCustomerServicesProxy();
-    return customerServices.customerLogin(emailId, password);
-  }
-  
-  public goair.model.reservation.Reservation[] viewAllReservations(goair.util.SearchParametersForReservation searchParam) throws java.rmi.RemoteException{
-    if (customerServices == null)
-      _initCustomerServicesProxy();
-    return customerServices.viewAllReservations(searchParam);
-  }
-  
   public int addReservation(goair.model.reservation.Reservation reservation) throws java.rmi.RemoteException{
     if (customerServices == null)
       _initCustomerServicesProxy();
@@ -90,6 +72,24 @@ public class CustomerServicesProxy implements goair.wsdl.CustomerServices {
     if (customerServices == null)
       _initCustomerServicesProxy();
     return customerServices.addCustomer(customer);
+  }
+  
+  public goair.model.reservation.Reservation[] viewAllReservations(goair.util.SearchParametersForReservation searchParam) throws java.rmi.RemoteException{
+    if (customerServices == null)
+      _initCustomerServicesProxy();
+    return customerServices.viewAllReservations(searchParam);
+  }
+  
+  public goair.model.customer.Customer customerLogin(java.lang.String emailId, java.lang.String password) throws java.rmi.RemoteException{
+    if (customerServices == null)
+      _initCustomerServicesProxy();
+    return customerServices.customerLogin(emailId, password);
+  }
+  
+  public goair.model.flight.Flight[] searchFlights(goair.util.SearchParametersForFlights searchFlightParam) throws java.rmi.RemoteException{
+    if (customerServices == null)
+      _initCustomerServicesProxy();
+    return customerServices.searchFlights(searchFlightParam);
   }
   
   public int createReservation(goair.model.customer.Customer customer, goair.model.flight.Flight flight) throws java.rmi.RemoteException{

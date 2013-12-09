@@ -95,26 +95,15 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
         _operations[6] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("editReservation");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://wsdl.goair", "reservation"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://reservation.model.goair", "Reservation"), goair.model.reservation.Reservation.class, false, false);
+        oper.setName("editEmployee");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://wsdl.goair", "employee"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://employee.model.goair", "Employee"), goair.model.employee.Employee.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         oper.setReturnClass(int.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "editReservationReturn"));
+        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "editEmployeeReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[7] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("addReservation");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://wsdl.goair", "reservation"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://reservation.model.goair", "Reservation"), goair.model.reservation.Reservation.class, false, false);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        oper.setReturnClass(int.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "addReservationReturn"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[8] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("deleteEmployee");
@@ -125,6 +114,17 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
         oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "deleteEmployeeReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[8] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("addReservation");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://wsdl.goair", "reservation"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://reservation.model.goair", "Reservation"), goair.model.reservation.Reservation.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        oper.setReturnClass(int.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "addReservationReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[9] = oper;
 
     }
@@ -132,6 +132,17 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
     private static void _initOperationDesc2(){
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("editReservation");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://wsdl.goair", "reservation"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://reservation.model.goair", "Reservation"), goair.model.reservation.Reservation.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        oper.setReturnClass(int.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "editReservationReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[10] = oper;
+
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("cancelReservation");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://wsdl.goair", "reservation"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://reservation.model.goair", "Reservation"), goair.model.reservation.Reservation.class, false, false);
@@ -141,26 +152,15 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
         oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "cancelReservationReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[10] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("editEmployee");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://wsdl.goair", "employee"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://employee.model.goair", "Employee"), goair.model.employee.Employee.class, false, false);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        oper.setReturnClass(int.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "editEmployeeReturn"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[11] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("editFlight");
+        oper.setName("deleteFlight");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://wsdl.goair", "flight"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://flight.model.goair", "Flight"), goair.model.flight.Flight.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         oper.setReturnClass(int.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "editFlightReturn"));
+        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "deleteFlightReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[12] = oper;
@@ -199,6 +199,17 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
         _operations[15] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("searchFlightsForAdmin");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://wsdl.goair", "searchParameters"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://util.goair", "SearchParametersForFlights"), goair.util.SearchParametersForFlights.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://flight.model.goair", "Flight"));
+        oper.setReturnClass(goair.model.flight.Flight[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "searchFlightsForAdminReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[16] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
         oper.setName("addCustomer");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://wsdl.goair", "customer"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://customer.model.goair", "Customer"), goair.model.customer.Customer.class, false, false);
         oper.addParameter(param);
@@ -207,18 +218,18 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
         oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "addCustomerReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[16] = oper;
+        _operations[17] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("deleteFlight");
+        oper.setName("editFlight");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://wsdl.goair", "flight"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://flight.model.goair", "Flight"), goair.model.flight.Flight.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         oper.setReturnClass(int.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "deleteFlightReturn"));
+        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "editFlightReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[17] = oper;
+        _operations[18] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("addFlight");
@@ -229,15 +240,6 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
         oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "addFlightReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[18] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("getAllFlightsForAdmin");
-        oper.setReturnType(new javax.xml.namespace.QName("http://flight.model.goair", "Flight"));
-        oper.setReturnClass(goair.model.flight.Flight[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "getAllFlightsForAdminReturn"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[19] = oper;
 
     }
@@ -246,12 +248,10 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("searchFlightsForAdmin");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://wsdl.goair", "searchParameters"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://util.goair", "SearchParametersForFlights"), goair.util.SearchParametersForFlights.class, false, false);
-        oper.addParameter(param);
+        oper.setName("getAllFlightsForAdmin");
         oper.setReturnType(new javax.xml.namespace.QName("http://flight.model.goair", "Flight"));
         oper.setReturnClass(goair.model.flight.Flight[].class);
-        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "searchFlightsForAdminReturn"));
+        oper.setReturnQName(new javax.xml.namespace.QName("http://wsdl.goair", "getAllFlightsForAdminReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[20] = oper;
@@ -665,148 +665,12 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
 }
     }
 
-    public int editReservation(goair.model.reservation.Reservation reservation) throws java.rmi.RemoteException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[7]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "editReservation"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {reservation});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
-    }
-
-    public int addReservation(goair.model.reservation.Reservation reservation) throws java.rmi.RemoteException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[8]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "addReservation"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {reservation});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
-    }
-
-    public int deleteEmployee(goair.model.employee.Employee employee) throws java.rmi.RemoteException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[9]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "deleteEmployee"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {employee});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
-    }
-
-    public int cancelReservation(goair.model.reservation.Reservation reservation) throws java.rmi.RemoteException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[10]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "cancelReservation"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {reservation});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
-    }
-
     public int editEmployee(goair.model.employee.Employee employee) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[11]);
+        _call.setOperation(_operations[7]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -835,7 +699,143 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
 }
     }
 
-    public int editFlight(goair.model.flight.Flight flight) throws java.rmi.RemoteException {
+    public int deleteEmployee(goair.model.employee.Employee employee) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[8]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "deleteEmployee"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {employee});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return ((java.lang.Integer) _resp).intValue();
+            } catch (java.lang.Exception _exception) {
+                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public int addReservation(goair.model.reservation.Reservation reservation) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[9]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "addReservation"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {reservation});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return ((java.lang.Integer) _resp).intValue();
+            } catch (java.lang.Exception _exception) {
+                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public int editReservation(goair.model.reservation.Reservation reservation) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[10]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "editReservation"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {reservation});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return ((java.lang.Integer) _resp).intValue();
+            } catch (java.lang.Exception _exception) {
+                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public int cancelReservation(goair.model.reservation.Reservation reservation) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[11]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "cancelReservation"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {reservation});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return ((java.lang.Integer) _resp).intValue();
+            } catch (java.lang.Exception _exception) {
+                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public int deleteFlight(goair.model.flight.Flight flight) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -847,7 +847,7 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "editFlight"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "deleteFlight"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -971,12 +971,46 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
 }
     }
 
-    public int addCustomer(goair.model.customer.Customer customer) throws java.rmi.RemoteException {
+    public goair.model.flight.Flight[] searchFlightsForAdmin(goair.util.SearchParametersForFlights searchParameters) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
         _call.setOperation(_operations[16]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "searchFlightsForAdmin"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {searchParameters});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (goair.model.flight.Flight[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (goair.model.flight.Flight[]) org.apache.axis.utils.JavaUtils.convert(_resp, goair.model.flight.Flight[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public int addCustomer(goair.model.customer.Customer customer) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[17]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1005,19 +1039,19 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
 }
     }
 
-    public int deleteFlight(goair.model.flight.Flight flight) throws java.rmi.RemoteException {
+    public int editFlight(goair.model.flight.Flight flight) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[17]);
+        _call.setOperation(_operations[18]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "deleteFlight"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "editFlight"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -1044,7 +1078,7 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[18]);
+        _call.setOperation(_operations[19]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1078,7 +1112,7 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[19]);
+        _call.setOperation(_operations[20]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -1090,40 +1124,6 @@ public class AdminServicesSoapBindingStub extends org.apache.axis.client.Stub im
         setRequestHeaders(_call);
         setAttachments(_call);
  try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (goair.model.flight.Flight[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (goair.model.flight.Flight[]) org.apache.axis.utils.JavaUtils.convert(_resp, goair.model.flight.Flight[].class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
-    }
-
-    public goair.model.flight.Flight[] searchFlightsForAdmin(goair.util.SearchParametersForFlights searchParameters) throws java.rmi.RemoteException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[20]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setEncodingStyle(null);
-        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://wsdl.goair", "searchFlightsForAdmin"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {searchParameters});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;

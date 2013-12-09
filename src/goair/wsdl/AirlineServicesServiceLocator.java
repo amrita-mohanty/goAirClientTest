@@ -1,5 +1,5 @@
 /**
- * CustomerServicesServiceLocator.java
+ * AirlineServicesServiceLocator.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
@@ -7,53 +7,53 @@
 
 package goair.wsdl;
 
-public class CustomerServicesServiceLocator extends org.apache.axis.client.Service implements goair.wsdl.CustomerServicesService {
+public class AirlineServicesServiceLocator extends org.apache.axis.client.Service implements goair.wsdl.AirlineServicesService {
 
-    public CustomerServicesServiceLocator() {
+    public AirlineServicesServiceLocator() {
     }
 
 
-    public CustomerServicesServiceLocator(org.apache.axis.EngineConfiguration config) {
+    public AirlineServicesServiceLocator(org.apache.axis.EngineConfiguration config) {
         super(config);
     }
 
-    public CustomerServicesServiceLocator(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
+    public AirlineServicesServiceLocator(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
         super(wsdlLoc, sName);
     }
 
-    // Use to get a proxy class for CustomerServices
-    private java.lang.String CustomerServices_address = "http://localhost:8080/goAir/services/CustomerServices";
+    // Use to get a proxy class for AirlineServices
+    private java.lang.String AirlineServices_address = "http://localhost:8080/goAir/services/AirlineServices";
 
-    public java.lang.String getCustomerServicesAddress() {
-        return CustomerServices_address;
+    public java.lang.String getAirlineServicesAddress() {
+        return AirlineServices_address;
     }
 
     // The WSDD service name defaults to the port name.
-    private java.lang.String CustomerServicesWSDDServiceName = "CustomerServices";
+    private java.lang.String AirlineServicesWSDDServiceName = "AirlineServices";
 
-    public java.lang.String getCustomerServicesWSDDServiceName() {
-        return CustomerServicesWSDDServiceName;
+    public java.lang.String getAirlineServicesWSDDServiceName() {
+        return AirlineServicesWSDDServiceName;
     }
 
-    public void setCustomerServicesWSDDServiceName(java.lang.String name) {
-        CustomerServicesWSDDServiceName = name;
+    public void setAirlineServicesWSDDServiceName(java.lang.String name) {
+        AirlineServicesWSDDServiceName = name;
     }
 
-    public goair.wsdl.CustomerServices getCustomerServices() throws javax.xml.rpc.ServiceException {
+    public goair.wsdl.AirlineServices getAirlineServices() throws javax.xml.rpc.ServiceException {
        java.net.URL endpoint;
         try {
-            endpoint = new java.net.URL(CustomerServices_address);
+            endpoint = new java.net.URL(AirlineServices_address);
         }
         catch (java.net.MalformedURLException e) {
             throw new javax.xml.rpc.ServiceException(e);
         }
-        return getCustomerServices(endpoint);
+        return getAirlineServices(endpoint);
     }
 
-    public goair.wsdl.CustomerServices getCustomerServices(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+    public goair.wsdl.AirlineServices getAirlineServices(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
         try {
-            goair.wsdl.CustomerServicesSoapBindingStub _stub = new goair.wsdl.CustomerServicesSoapBindingStub(portAddress, this);
-            _stub.setPortName(getCustomerServicesWSDDServiceName());
+            goair.wsdl.AirlineServicesSoapBindingStub _stub = new goair.wsdl.AirlineServicesSoapBindingStub(portAddress, this);
+            _stub.setPortName(getAirlineServicesWSDDServiceName());
             return _stub;
         }
         catch (org.apache.axis.AxisFault e) {
@@ -61,8 +61,8 @@ public class CustomerServicesServiceLocator extends org.apache.axis.client.Servi
         }
     }
 
-    public void setCustomerServicesEndpointAddress(java.lang.String address) {
-        CustomerServices_address = address;
+    public void setAirlineServicesEndpointAddress(java.lang.String address) {
+        AirlineServices_address = address;
     }
 
     /**
@@ -72,9 +72,9 @@ public class CustomerServicesServiceLocator extends org.apache.axis.client.Servi
      */
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
-            if (goair.wsdl.CustomerServices.class.isAssignableFrom(serviceEndpointInterface)) {
-                goair.wsdl.CustomerServicesSoapBindingStub _stub = new goair.wsdl.CustomerServicesSoapBindingStub(new java.net.URL(CustomerServices_address), this);
-                _stub.setPortName(getCustomerServicesWSDDServiceName());
+            if (goair.wsdl.AirlineServices.class.isAssignableFrom(serviceEndpointInterface)) {
+                goair.wsdl.AirlineServicesSoapBindingStub _stub = new goair.wsdl.AirlineServicesSoapBindingStub(new java.net.URL(AirlineServices_address), this);
+                _stub.setPortName(getAirlineServicesWSDDServiceName());
                 return _stub;
             }
         }
@@ -94,8 +94,8 @@ public class CustomerServicesServiceLocator extends org.apache.axis.client.Servi
             return getPort(serviceEndpointInterface);
         }
         java.lang.String inputPortName = portName.getLocalPart();
-        if ("CustomerServices".equals(inputPortName)) {
-            return getCustomerServices();
+        if ("AirlineServices".equals(inputPortName)) {
+            return getAirlineServices();
         }
         else  {
             java.rmi.Remote _stub = getPort(serviceEndpointInterface);
@@ -105,7 +105,7 @@ public class CustomerServicesServiceLocator extends org.apache.axis.client.Servi
     }
 
     public javax.xml.namespace.QName getServiceName() {
-        return new javax.xml.namespace.QName("http://wsdl.goair", "CustomerServicesService");
+        return new javax.xml.namespace.QName("http://wsdl.goair", "AirlineServicesService");
     }
 
     private java.util.HashSet ports = null;
@@ -113,7 +113,7 @@ public class CustomerServicesServiceLocator extends org.apache.axis.client.Servi
     public java.util.Iterator getPorts() {
         if (ports == null) {
             ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("http://wsdl.goair", "CustomerServices"));
+            ports.add(new javax.xml.namespace.QName("http://wsdl.goair", "AirlineServices"));
         }
         return ports.iterator();
     }
@@ -123,8 +123,8 @@ public class CustomerServicesServiceLocator extends org.apache.axis.client.Servi
     */
     public void setEndpointAddress(java.lang.String portName, java.lang.String address) throws javax.xml.rpc.ServiceException {
         
-if ("CustomerServices".equals(portName)) {
-            setCustomerServicesEndpointAddress(address);
+if ("AirlineServices".equals(portName)) {
+            setAirlineServicesEndpointAddress(address);
         }
         else 
 { // Unknown Port Name

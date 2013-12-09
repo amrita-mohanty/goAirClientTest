@@ -8,7 +8,7 @@
 package goair.model.customer;
 
 public class Customer  extends goair.model.general.Person  implements java.io.Serializable {
-    private int customerId;
+    private java.lang.String customerId;
 
     private java.lang.String nationality;
 
@@ -29,7 +29,7 @@ public class Customer  extends goair.model.general.Person  implements java.io.Se
            java.lang.String password,
            java.lang.String state,
            java.lang.String zipcode,
-           int customerId,
+           java.lang.String customerId,
            java.lang.String nationality,
            java.lang.String passportNum) {
         super(
@@ -55,7 +55,7 @@ public class Customer  extends goair.model.general.Person  implements java.io.Se
      * 
      * @return customerId
      */
-    public int getCustomerId() {
+    public java.lang.String getCustomerId() {
         return customerId;
     }
 
@@ -65,7 +65,7 @@ public class Customer  extends goair.model.general.Person  implements java.io.Se
      * 
      * @param customerId
      */
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(java.lang.String customerId) {
         this.customerId = customerId;
     }
 
@@ -121,7 +121,9 @@ public class Customer  extends goair.model.general.Person  implements java.io.Se
         __equalsCalc = obj;
         boolean _equals;
         _equals = super.equals(obj) && 
-            this.customerId == other.getCustomerId() &&
+            ((this.customerId==null && other.getCustomerId()==null) || 
+             (this.customerId!=null &&
+              this.customerId.equals(other.getCustomerId()))) &&
             ((this.nationality==null && other.getNationality()==null) || 
              (this.nationality!=null &&
               this.nationality.equals(other.getNationality()))) &&
@@ -139,7 +141,9 @@ public class Customer  extends goair.model.general.Person  implements java.io.Se
         }
         __hashCodeCalc = true;
         int _hashCode = super.hashCode();
-        _hashCode += getCustomerId();
+        if (getCustomerId() != null) {
+            _hashCode += getCustomerId().hashCode();
+        }
         if (getNationality() != null) {
             _hashCode += getNationality().hashCode();
         }
@@ -159,8 +163,8 @@ public class Customer  extends goair.model.general.Person  implements java.io.Se
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("customerId");
         elemField.setXmlName(new javax.xml.namespace.QName("http://customer.model.goair", "customerId"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setNillable(false);
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setNillable(true);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("nationality");
