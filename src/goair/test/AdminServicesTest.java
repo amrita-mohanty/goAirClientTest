@@ -24,7 +24,7 @@ public class AdminServicesTest
 	public static AdminServicesProxy adminServicesProxy = 
 			new AdminServicesProxy();
 	static {
-		adminServicesProxy.setEndpoint("http://localhost:8080/goAir/services/AdminServices");
+		adminServicesProxy.setEndpoint("http://localhost:8080/goAir1/services/AdminServices");
 	}
 	
 	public static void testAddCustomer()
